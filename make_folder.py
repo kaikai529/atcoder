@@ -2,10 +2,9 @@ import os
 import sys
 import shutil
 import subprocess
-input = sys.stdin.readline
 
 if __name__=="__main__":
-    contest_name = input().rstrip()
+    contest_name = input("Input contest name: ").rstrip()
 
     if os.path.exists(contest_name): exit()
     else: os.mkdir(contest_name)
