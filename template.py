@@ -1,4 +1,6 @@
 import sys
 input = sys.stdin.readline
 
-a, b, c = map(int, input().split())
+n, k = map(int, input().split())
+a = list(map(int, input().split()))
+a = [map(int, input().split()) for _ in range(n)]
