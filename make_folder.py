@@ -1,7 +1,5 @@
 import os
-import sys
 import shutil
-import subprocess
 
 if __name__=="__main__":
     contest_name = input("Input contest name: ").rstrip()
