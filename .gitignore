@@ -1,4 +1,6 @@
-test.py
-test1.py
+# folders
 lecture
-make_exam_ans.py
+
+# files
+.exmaple_anwer/make_exam_ans.py
+.exmaple_anwer/template.py
