@@ -5,8 +5,8 @@ if __name__=="__main__":
     contest_name = input("Input contest name: ").rstrip()
 
     if os.path.exists(contest_name): exit()
-    else: os.mkdir(contest_name)
-    shutil.copy(".my_answer/template.py", contest_name+"/"+contest_name+"_a.py")
-    shutil.copy(".my_answer/template.py", contest_name+"/"+contest_name+"_b.py")
-    shutil.copy(".my_answer/template.py", contest_name+"/"+contest_name+"_c.py")
-    shutil.copy(".my_answer/template.py", contest_name+"/"+contest_name+"_d.py")
+    else: os.mkdir("./my_answer/"+contest_name)
+    shutil.copy("template.py", "./my_answer/"+contest_name+"/"+contest_name+"_a.py")
+    shutil.copy("template.py", "./my_answer/"+contest_name+"/"+contest_name+"_b.py")
+    shutil.copy("template.py", "./my_answer/"+contest_name+"/"+contest_name+"_c.py")
+    shutil.copy("template.py", "./my_answer/"+contest_name+"/"+contest_name+"_d.py")
