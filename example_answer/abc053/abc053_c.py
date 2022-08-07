@@ -1,6 +1,9 @@
 import sys
 input = sys.stdin.readline
 
-n, k = map(int, input().split())
-a = list(map(int, input().split()))
-a = [map(int, input().split()) for _ in range(n)]
+x = int(input())
+n = x//11
+
+if x%11==0: print(2*n)
+elif x%11<=6: print(2*n+1)
+else: print(2*n+2)
