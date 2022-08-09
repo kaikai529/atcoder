@@ -75,6 +75,8 @@ Input contest name: abc120
 |abc196        |o|o|o|x| - | - | |
 |abc197        |o|o|o|x| - | - | |
 |-        |-|-|-|-| - | - | |
+|abc256        |o|o|-|-| - | - | |
+|abc257        |o|o|o|-| - | - | |
 |abc258        |o|o|o|x| - | - | |
 |abc259        |o|o|o|x| - | - | |
 |abc260        |o|o|o|x| - | - | |
