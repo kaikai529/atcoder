@@ -77,6 +77,9 @@ Input contest name: abc120
 |-        |-|-|-|-| - | - | |
 |abc258        |o|o|o|x| - | - | |
 |abc259        |o|o|o|x| - | - | |
+|abc260        |o|o|o|x| - | - | |
+|abc261        |o|o|o|x| - | - | |
+|abc262        |o|o|o|x| - | - | |
 
 o ・・・ 解ける <br>
 △ ・・・ 理解・実装ができる <br>
