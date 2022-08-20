@@ -97,7 +97,7 @@ Input contest name: abc120
 |abc247        |o|-|-|-| - | - | |
 |abc248        |o|-|-|-| - | - | |
 |abc249        |o|-|-|-| - | - | |
-|abc250        |o|-|-|-| - | - | |
+|abc250        |o|o|o|x| - | - | |
 |abc251        |o|o|o|△| - | - | |
 |abc252        |o|o|o|△| - | - | |
 |abc253        |o|o|o|-| - | - |C:heapq |
