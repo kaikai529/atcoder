@@ -96,7 +96,7 @@ Input contest name: abc120
 |abc246        |o|-|-|-| - | - | |
 |abc247        |o|-|-|-| - | - | |
 |abc248        |o|-|-|-| - | - | |
-|abc249        |o|-|-|-| - | - | |
+|abc249        |o|o|o|o| - | - |D:Pypy only |
 |abc250        |o|o|o|x| - | - | |
 |abc251        |o|o|o|△| - | - | |
 |abc252        |o|o|o|△| - | - | |
