@@ -15,6 +15,7 @@ def IN(trans_func=lambda x: x):
     input_ = input().strip().split()
     return int(*input_) if len(input_) == 1 else trans_func(map(int, input_))
 
+
 def STR_IN():
     input_ = input().strip()
     return input_ if len(input_) == 1 else input_.split()
@@ -28,3 +29,9 @@ def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
 # main
+
+a, b, c = STR_IN()
+if a[-1] == b[0] and b[-1] == c[0]:
+    print("YES")
+else:
+    print("NO")
