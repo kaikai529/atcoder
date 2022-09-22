@@ -28,3 +28,12 @@ def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
 # main
+
+
+A = IN(list)
+A.sort()
+
+if A[0]-A[1] == A[1]-A[2]:
+    print("Yes")
+else:
+    print("No")

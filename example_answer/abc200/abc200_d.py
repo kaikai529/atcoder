@@ -7,13 +7,16 @@ input = sys.stdin.readline
 # 自作関数
 
 
+def hold(n): return n
+
+
 def combination(n: int, r: int):
     return factorial(n) // factorial(r) // factorial(n - r)
 
 
-def IN(trans_func=lambda x: x):
+def IN(trans_func=hold):
     input_ = input().strip().split()
-    return int(*input_) if len(input_) == 1 else trans_func(map(int, input_))
+    return int(*input_) if len(input_) == 1 else hold(map(int, input_))
 
 
 def STR_IN():
@@ -28,3 +31,7 @@ def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
 # main
+
+n = IN()
+A = IN(list)
+dp = []
