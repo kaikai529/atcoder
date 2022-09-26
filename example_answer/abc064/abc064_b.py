@@ -34,3 +34,10 @@ def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
 # main
+
+
+n = IN()
+a = IN(list)
+a.sort()
+
+print(a[-1]-a[0])
