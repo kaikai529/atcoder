@@ -15,10 +15,10 @@ def IN(trans_func=lambda x: x):
     input_ = input().strip().split()
     return int(*input_) if len(input_) == 1 else trans_func(map(int, input_))
 
-def STR_IN():
-    input_ = input().strip().split()
-    return input_[0] if len(input_) == 1 else input_
 
+def STR_IN():
+    input_ = input().strip()
+    return input_ if len(input_) == 1 else input_.split()
 
 def INs(len_n: int, trans_func=list):
     return [trans_func(map(int, input().split())) for _ in range(len_n)]

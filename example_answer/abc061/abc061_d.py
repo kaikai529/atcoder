@@ -15,10 +15,10 @@ def IN(trans_func=lambda x: x):
     input_ = input().strip().split()
     return int(*input_) if len(input_) == 1 else trans_func(map(int, input_))
 
-def STR_IN():
-    input_ = input().strip().split()
-    return input_[0] if len(input_) == 1 else input_
 
+def STR_IN():
+    input_ = input().strip()
+    return input_ if len(input_) == 1 else input_.split()
 
 def INs(len_n: int, trans_func=list):
     return [trans_func(map(int, input().split())) for _ in range(len_n)]
@@ -28,3 +28,12 @@ def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
 # main
+
+n, m = IN()
+connect = INs(m)
+
+# 隣接行列
+adjacent = [[None]*n for _ in range(n)]
+for p1, p2, reward in connect:
+    adjacent[p1][p2] = reward
+    adjacent[p2][p1] = reward
