@@ -52,6 +52,7 @@ Input contest name: abc120
 |abc055        |o|o|o|o| - | - | |
 |abc056        |o|o|△|?| - | - | |
 |abc057        |o|o|o|-| - | - | |
+|abc058        |o|o|o|-| - | - | |
 |-        |-|-|-|-| - | - | |
 |abc175        |o|o|o|-| - | - | |
 |abc176        |o|o|o|-| - | - | |
@@ -103,7 +104,7 @@ Input contest name: abc120
 |abc251        |o|o|o|△| - | - | |
 |abc252        |o|o|o|△| - | - | |
 |abc253        |o|o|o|-| - | - |C:heapq |
-|abc254        |o|-|-|-| - | - | |
+|abc254        |o|o|-|-| - | - | |
 |abc255        |o|o|o|△| - | - | |
 |abc256        |o|o|-|-| - | - | |
 |abc257        |o|o|o|-| - | - | |
