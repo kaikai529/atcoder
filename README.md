@@ -58,6 +58,10 @@ Input contest name: abc120
 |abc061        |o|o|o|x| - | - |D:ベルマンフォード法 |
 |abc062        |o|o|x|-| - | - | |
 |abc063        |o|o|o|x| - | - | |
+|abc064        |o|-|-|-| - | - | |
+|abc065        |o|o|o|-| - | - | |
+|abc066        |o|o|o|-| - | - |C:deque |
+|abc067        |o|o|o|-| - | - |C:累積和 |
 |-        |-|-|-|-| - | - | |
 |abc175        |o|o|o|-| - | - | |
 |abc176        |o|o|o|-| - | - | |
@@ -109,7 +113,7 @@ Input contest name: abc120
 |abc251        |o|o|o|△| - | - | |
 |abc252        |o|o|o|△| - | - | |
 |abc253        |o|o|o|-| - | - |C:heapq |
-|abc254        |o|-|-|-| - | - | |
+|abc254        |o|o|-|-| - | - | |
 |abc255        |o|o|o|△| - | - | |
 |abc256        |o|o|-|-| - | - | |
 |abc257        |o|o|o|-| - | - | |

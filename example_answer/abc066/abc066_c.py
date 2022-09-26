@@ -1,5 +1,5 @@
 from math import factorial
-from collections import Counter, defaultdict
+from collections import Counter, defaultdict, deque
 from queue import LifoQueue, Queue
 import sys
 input = sys.stdin.readline
@@ -20,6 +20,7 @@ def IN(trans_func=lambda x: x):
         return trans_func(map(int, input_))
     return int(*input_) if len(input_) == 1 else map(int, input_)
 
+
 def STR_IN():
     input_ = input().strip().split()
     return input_[0] if len(input_) == 1 else input_
@@ -33,3 +34,16 @@ def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
 # main
+
+
+n = IN()
+a = IN(list)
+b = deque()
+
+for i in range(n):
+    if i%2!=n%2:
+        b.appendleft(a[i])
+    else:
+        b.append(a[i])
+
+print(*b)

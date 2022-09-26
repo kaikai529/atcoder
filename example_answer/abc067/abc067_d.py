@@ -20,6 +20,7 @@ def IN(trans_func=lambda x: x):
         return trans_func(map(int, input_))
     return int(*input_) if len(input_) == 1 else map(int, input_)
 
+
 def STR_IN():
     input_ = input().strip().split()
     return input_[0] if len(input_) == 1 else input_
@@ -33,3 +34,5 @@ def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
 # main
+
+n = IN()

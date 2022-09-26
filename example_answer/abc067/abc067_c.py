@@ -1,4 +1,4 @@
-from math import factorial
+from math import factorial, inf
 from collections import Counter, defaultdict
 from queue import LifoQueue, Queue
 import sys
@@ -20,6 +20,7 @@ def IN(trans_func=lambda x: x):
         return trans_func(map(int, input_))
     return int(*input_) if len(input_) == 1 else map(int, input_)
 
+
 def STR_IN():
     input_ = input().strip().split()
     return input_[0] if len(input_) == 1 else input_
@@ -33,3 +34,14 @@ def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
 # main
+
+n = IN()
+a = IN(list)
+
+cusum_a = [a[0]]
+for i in range(n-1):cusum_a.append(cusum_a[-1]+a[i+1])
+
+ans = inf
+for i in range(n-1):
+    ans = min(ans, abs(cusum_a[-1]-2*cusum_a[i]))
+print(ans)
