@@ -34,3 +34,36 @@ def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
 # main
+
+n = IN()
+a = IN(list)
+color = defaultdict(int)
+
+for _a in a:
+    if 1 <= _a <= 399:
+        color["gray"] += 1
+    elif 400 <= _a <= 799:
+        color["brown"] += 1
+    elif 800 <= _a <= 1199:
+        color["green"] += 1
+    elif 1200 <= _a <= 1599:
+        color["light_blue"] += 1
+    elif 1600 <= _a <= 1999:
+        color["blue"] += 1
+    elif 2000 <= _a <= 2399:
+        color["yellow"] += 1
+    elif 2400 <= _a <= 2799:
+        color["orange"] += 1
+    elif 2800 <= _a <= 3199:
+        color["red"] += 1
+    else:
+        color["free"] += 1
+
+k = color.keys()
+if not "free" in k:
+    print(len(k), len(k))
+elif len(k) == 1:
+    print(1, color["free"])
+else:
+    min_color = max(1,len(k)-1)
+    print(min_color, min_color+color["free"])
