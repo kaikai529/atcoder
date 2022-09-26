@@ -34,3 +34,9 @@ def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
 # main
+
+n, k = IN()
+l = IN(list)
+l.sort(reverse=True)
+
+print(sum(l[:k]))

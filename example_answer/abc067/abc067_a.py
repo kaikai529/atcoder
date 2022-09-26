@@ -34,3 +34,10 @@ def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
 # main
+
+a, b = IN()
+
+if a*b*(a+b)%3==0:
+    print("Possible")
+else:
+    print("Impossible")
