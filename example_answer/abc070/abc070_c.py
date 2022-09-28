@@ -1,12 +1,8 @@
 from math import factorial, gcd
 from collections import Counter, defaultdict
-from os import defpath
 from queue import LifoQueue, Queue
 import sys
-sys.setrecursionlimit(10 ** 7) # 再起関数の再起上限
 input = sys.stdin.readline
-# 定数
-MOD = 10**9+7
 
 # 定数
 MOD = 10**9+7
@@ -36,8 +32,8 @@ def STR_IN():
     return input_[0] if len(input_) == 1 else input_
 
 
-def INs(len_n: int, trans_func=lambda x:x):
-    return trans_func([IN(trans_func) for _ in range(len_n)])
+def INs(len_n: int, trans_func=list):
+    return trans_func([IN() for _ in range(len_n)])
 
 
 def STR_INs(len_n: int):
@@ -45,3 +41,11 @@ def STR_INs(len_n: int):
 
 
 # main
+n = IN()
+T = INs(n, list)
+
+lcm_val = T[0]
+for idx in range(n-1):
+    lcm_val = lcm(lcm_val,T[idx+1])
+
+print(lcm_val)
