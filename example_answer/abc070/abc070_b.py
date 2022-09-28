@@ -1,4 +1,4 @@
-from math import factorial, gcd
+from math import factorial
 from collections import Counter, defaultdict
 from queue import LifoQueue, Queue
 import sys
@@ -10,13 +10,7 @@ MOD = 10**9+7
 # 自作関数
 
 
-def lcm(a, b):
-    # desc: 最小公倍数を求める関数
-    return a*b // gcd(a, b)
-
-
 def combination(n: int, r: int):
-    # desc: nCrを求める関数
     return factorial(n) // factorial(r) // factorial(n - r)
 
 
@@ -39,5 +33,17 @@ def INs(len_n: int, trans_func=list):
 def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
-
 # main
+
+a, b, c, d = IN()
+time = [0]*101
+
+for i in range(a+1,b+1):
+    time[i] += 1
+
+ans = 0
+for i in range(c+1,d+1):
+    if time[i] == 1:
+        ans += 1
+
+print(ans)

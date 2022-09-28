@@ -41,3 +41,11 @@ def STR_INs(len_n: int):
 
 
 # main
+n = IN()
+T = INs(n, list)
+
+lcm_val = T[0]
+for idx in range(n-1):
+    lcm_val = lcm(lcm_val,T[idx+1])
+
+print(lcm_val)
