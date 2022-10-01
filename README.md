@@ -81,6 +81,7 @@ Input contest name: abc120
 |abc071        |o|o|o|o| - | - | |
 |abc072        |o|o|o|o| - | - | |
 |abc073        |o|o|o|-| - | - | |
+|abc074        |o|o|-|-| - | - | |
 |-        |-|-|-|-| - | - | |
 |abc175        |o|o|o|-| - | - | |
 |abc176        |o|o|o|-| - | - | |
