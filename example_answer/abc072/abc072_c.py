@@ -8,9 +8,6 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 
-# 定数
-MOD = 10**9+7
-
 # 自作関数
 
 
@@ -45,3 +42,14 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+a = IN(list)
+ans = [0]*(10**5+10)
+
+for _a in a:
+    ans[_a] += 1
+    ans[_a-1] += 1
+    ans[_a+1] += 1
+
+print(max(ans))

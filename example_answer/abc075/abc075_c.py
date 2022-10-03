@@ -8,9 +8,6 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 
-# 定数
-MOD = 10**9+7
-
 # 自作関数
 
 
@@ -45,3 +42,31 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n, m = IN()
+road = INs(m,list)
+
+ans = 0
+for idx in range(m):
+    tree = [[] for _ in range(n)]
+    for road_idx, (a, b) in enumerate(road):
+        if idx == road_idx: continue 
+        tree[a-1].append(b-1)
+        tree[b-1].append(a-1)
+
+    seen = [False]*n
+    q = Queue()
+
+    seen[0] = True
+    q.put(tree[0])
+    while not q.empty():
+        for next_point in q.get():
+            if seen[next_point]:
+                continue
+            q.put(tree[next_point])
+            seen[next_point] = True
+
+    if not all(seen):
+        ans += 1
+
+print(ans)

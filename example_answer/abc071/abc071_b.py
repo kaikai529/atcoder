@@ -8,9 +8,6 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 
-# 定数
-MOD = 10**9+7
-
 # 自作関数
 
 
@@ -45,3 +42,15 @@ def STR_INs(len_n: int):
 
 
 # main
+
+s = STR_IN()
+group_s = set(Counter(s).keys())
+group_all = set([chr(char_num) for char_num in range(ord("a"),ord("z")+1)])
+
+group_sub = list(group_all - group_s)
+group_sub.sort()
+
+if len(group_sub)==0:
+    print(None)
+else:
+    print(group_sub[0])

@@ -8,9 +8,6 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 
-# 定数
-MOD = 10**9+7
-
 # 自作関数
 
 
@@ -45,3 +42,10 @@ def STR_INs(len_n: int):
 
 
 # main
+
+x, a, b = IN()
+
+if abs(x-a) < abs(x-b):
+    print("A")
+else:
+    print("B")

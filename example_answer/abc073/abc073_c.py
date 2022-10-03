@@ -8,9 +8,6 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 
-# 定数
-MOD = 10**9+7
-
 # 自作関数
 
 
@@ -45,3 +42,13 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+a = INs(n)
+cnt_a = Counter(a)
+
+ans = 0
+for key in cnt_a.keys():
+    if cnt_a[key]%2 == 1:
+        ans += 1
+print(ans)
