@@ -43,3 +43,15 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+a = sorted(IN(list))
+b = IN(list)
+c = sorted(IN(list))
+
+
+ans = 0
+for _b in b:
+    ans += bisect_left(a,_b)*(n-bisect_right(c,_b))
+
+print(ans)

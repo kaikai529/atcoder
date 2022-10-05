@@ -1,4 +1,3 @@
-from bisect import bisect_left, bisect_right
 from math import factorial, gcd
 from collections import Counter, defaultdict
 from os import defpath
@@ -43,3 +42,11 @@ def STR_INs(len_n: int):
 
 
 # main
+
+c1 = STR_IN()
+c2 = STR_IN()
+
+if c1 == c2[::-1]:
+    print("YES")
+else:
+    print("NO")
