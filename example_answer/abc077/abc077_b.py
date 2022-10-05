@@ -1,5 +1,4 @@
-from bisect import bisect_left, bisect_right
-from math import factorial, gcd
+from math import factorial, floor, gcd, sqrt
 from collections import Counter, defaultdict
 from os import defpath
 from queue import LifoQueue, Queue
@@ -43,3 +42,6 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+print(floor(sqrt(n))**2)
