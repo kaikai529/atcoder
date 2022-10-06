@@ -85,6 +85,7 @@ Input contest name: abc120
 |abc075        |o|o|o|-| - | - |C:グラフ理論 |
 |abc076        |o|o|o|-| - | - | |
 |abc077        |o|o|o|-| - | - |C:bisect |
+|abc078        |o|o|o|-| - | - | |
 |-        |-|-|-|-| - | - | |
 |abc175        |o|o|o|-| - | - | |
 |abc176        |o|o|o|-| - | - | |
