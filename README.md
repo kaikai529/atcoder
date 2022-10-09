@@ -86,6 +86,8 @@ Input contest name: abc120
 |abc076        |o|o|o|-| - | - | |
 |abc077        |o|o|o|-| - | - |C:bisect |
 |abc078        |o|o|o|-| - | - | |
+|abc079        |o|o|o|o| - | - |D:ワーシャルフロイド法 |
+|abc080        |o|o|o|-| - | - |C:Bit探索 |
 |-        |-|-|-|-| - | - | |
 |abc175        |o|o|o|-| - | - | |
 |abc176        |o|o|o|-| - | - | |
