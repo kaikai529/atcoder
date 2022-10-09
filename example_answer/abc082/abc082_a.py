@@ -43,3 +43,6 @@ def STR_INs(len_n: int):
 
 
 # main
+
+a,b = IN()
+print(ceil((a+b)/2))
