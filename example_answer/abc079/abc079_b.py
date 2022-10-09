@@ -43,3 +43,11 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+
+Lucas = [2,1]
+for i in range(n-1):
+    Lucas.append(Lucas[i]+Lucas[i+1])
+
+print(Lucas[n])

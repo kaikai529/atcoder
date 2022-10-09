@@ -43,3 +43,12 @@ def STR_INs(len_n: int):
 
 
 # main
+
+x, y = STR_IN()
+
+if ord(x) < ord(y):
+    print("<")
+elif ord(x) == ord(y):
+    print("=")
+else:
+    print(">")

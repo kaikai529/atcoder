@@ -1,5 +1,5 @@
 from bisect import bisect_left, bisect_right
-from math import factorial, gcd
+from math import factorial, gcd, inf
 from collections import Counter, defaultdict
 from os import defpath
 from queue import LifoQueue, Queue
@@ -43,3 +43,20 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+F = INs(n, list)
+P = INs(n, list)
+
+ans = -inf
+for i in range(1, 2**10):
+    shop_profit = 0
+    for shop_idx in range(n):
+        cnt = 0
+        for j in range(10):
+            if i>>j&1 and F[shop_idx][j]:
+                cnt += 1
+        shop_profit += P[shop_idx][cnt]
+    ans = max(ans, shop_profit)
+
+print(ans)

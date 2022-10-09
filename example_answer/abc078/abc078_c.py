@@ -43,3 +43,8 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n, m = IN()
+
+ans = (n-m)*100 + 1900*m
+print(ans*2**m)

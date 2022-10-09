@@ -43,3 +43,21 @@ def STR_INs(len_n: int):
 
 
 # main
+
+number = list(map(int, STR_IN()))
+
+for option in range(2**4-1):
+    ans = str(number[0])
+    total = number[0]
+    for i in range(3):
+        if (option>>i)&1:
+            total += number[i+1]
+            ans = ans + "+" + str(number[i+1])
+        else:
+            total -= number[i+1]
+            ans = ans + "-" + str(number[i+1])
+
+    if total == 7:
+        print(ans+"=7")
+        break
+

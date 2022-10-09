@@ -29,9 +29,9 @@ def IN(trans_func=lambda x: x):
     return int(*input_) if len(input_) == 1 else map(int, input_)
 
 
-def STR_IN():
+def STR_IN(trans_func=lambda x:x):
     input_ = input().strip().split()
-    return input_[0] if len(input_) == 1 else input_
+    return trans_func(input_[0]) if len(input_) == 1 else trans_func(input_)
 
 
 def INs(len_n: int, trans_func=lambda x:x):
@@ -43,3 +43,14 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = STR_IN(list)
+num = int("".join(n))
+
+total = 0
+for i in range(len(n)): total += int(n[i])
+
+if num%total == 0:
+    print("Yes")
+else:
+    print("No")

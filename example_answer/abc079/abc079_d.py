@@ -1,4 +1,5 @@
 from bisect import bisect_left, bisect_right
+from itertools import product
 from math import factorial, gcd
 from collections import Counter, defaultdict
 from os import defpath
@@ -43,3 +44,21 @@ def STR_INs(len_n: int):
 
 
 # main
+
+h, w = IN()
+c = INs(10, list)
+a = INs(h, list)
+
+
+for middle, point1, point2 in product(*[range(10) for _ in range(3)]):
+    c[point1][point2] = min(c[point1][point2], c[point1][middle]+c[middle][point2])
+
+ans = 0
+for _h in range(h):
+    for _w in range(w):
+        num =  a[_h][_w]
+        if num == -1:
+            continue
+        ans += c[num][1]
+
+print(ans)

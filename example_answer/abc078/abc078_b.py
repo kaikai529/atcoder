@@ -43,3 +43,13 @@ def STR_INs(len_n: int):
 
 
 # main
+
+x, y, z = IN()
+
+ans = 0
+rest_x = x - (y+z)
+while rest_x >= z:
+    ans += 1
+    rest_x -= (y+z)
+
+print(ans)

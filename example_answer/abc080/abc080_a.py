@@ -43,3 +43,7 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n, a, b = IN()
+
+print(min(n*a, b))
