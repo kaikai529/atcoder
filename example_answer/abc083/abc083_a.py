@@ -43,3 +43,12 @@ def STR_INs(len_n: int):
 
 
 # main
+
+a, b, c, d = IN()
+
+if a+b > c+d:
+    print("Left")
+elif a+b == c+d:
+    print("Balanced")
+else:
+    print("Right")

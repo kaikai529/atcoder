@@ -43,3 +43,15 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n, a, b = IN()
+
+ans = 0
+for i in range(n+1):
+    total = 0
+    for s in str(i):
+        total += int(s)
+    if a <= total <= b:
+        ans += i
+
+print(ans)

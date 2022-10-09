@@ -1,5 +1,5 @@
 from bisect import bisect_left, bisect_right
-from math import ceil, factorial, floor, gcd
+from math import ceil, factorial, floor, gcd, log, sqrt
 from collections import Counter, defaultdict
 from os import defpath
 from queue import LifoQueue, Queue
@@ -43,3 +43,13 @@ def STR_INs(len_n: int):
 
 
 # main
+
+x, y = IN()
+
+this_x = x
+ans = 0
+while this_x <= y:
+    ans += 1
+    this_x *= 2
+
+print(ans)

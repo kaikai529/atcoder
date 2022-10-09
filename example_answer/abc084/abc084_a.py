@@ -43,3 +43,6 @@ def STR_INs(len_n: int):
 
 
 # main
+
+m = IN()
+print(48-m)

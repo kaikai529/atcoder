@@ -1,5 +1,5 @@
 from bisect import bisect_left, bisect_right
-from math import ceil, factorial, floor, gcd
+from math import factorial, gcd
 from collections import Counter, defaultdict
 from os import defpath
 from queue import LifoQueue, Queue
@@ -43,3 +43,15 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+a = IN(list)
+a_cnt = Counter(a)
+
+ans = 0
+for key in a_cnt.keys():
+    if key <= a_cnt[key]:
+        ans += (a_cnt[key] - key)
+    else:
+        ans += a_cnt[key]
+print(ans) 
