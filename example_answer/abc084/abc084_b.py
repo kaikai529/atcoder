@@ -43,3 +43,21 @@ def STR_INs(len_n: int):
 
 
 # main
+
+a, b = IN()
+s = STR_IN()
+
+ans = True
+for idx in range(a):
+    if not "0" <= s[idx] <= "9":
+        ans = False
+
+if not s[a] == "-":
+    ans = False
+
+for idx in range(b):
+    if not "0" <= s[a+1+idx] <= "9":
+        ans = False
+
+if ans: print("Yes")
+else: print("No")
