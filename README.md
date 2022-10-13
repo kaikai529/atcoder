@@ -94,6 +94,7 @@ Input contest name: abc120
 |abc084        |o|o|o|o| - | - | |
 |abc085        |o|o|o|o| - | - | |
 |abc086        |o|o|o|-| - | - | |
+|abc087        |o|o|o|-| - | - |C:累積和 |
 |-        |-|-|-|-| - | - | |
 |abc175        |o|o|o|-| - | - | |
 |abc176        |o|o|o|-| - | - | |

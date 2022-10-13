@@ -1,5 +1,5 @@
 from bisect import bisect_left, bisect_right
-from itertools import count
+from itertools import count, product
 from math import ceil, factorial, floor, gcd
 from collections import Counter, defaultdict
 from os import defpath
@@ -37,10 +37,10 @@ def prime_numbers(max_n):
     return ps
 
 
-def cum(array: list, key= lambda x:x):
-    cum_sum = [key(array)[0]]
-    for i in range(len(key(array))-1):
-        cum_sum.append(cum_sum[-1]+key(array)[i+1])
+def cum(array: list):
+    cum_sum = [array[0]]
+    for i in range(len(array)-1):
+        cum_sum.append(cum_sum[-1]+array[i+1])
     return cum_sum
 
 
@@ -70,3 +70,12 @@ def STR_INs(len_n: int):
 
 
 # main
+
+a, b, c, x = INs(4)
+
+ans = 0
+for _a, _b, _c in product(range(a+1), range(b+1), range(c+1)):
+    if _a*500+_b*100+_c*50 == x:
+        ans += 1
+
+print(ans)

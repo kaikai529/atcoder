@@ -70,3 +70,15 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+a = INs(2, list)
+
+cum_a_up = cum(a, key=lambda x:x[0])
+cum_a_down = cum(a[1][::-1])
+
+ans = 0
+for i in range(n):
+    ans = max(ans, cum_a_up[i]+cum_a_down[::-1][i])
+
+print(ans)
