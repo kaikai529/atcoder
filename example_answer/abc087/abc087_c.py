@@ -37,10 +37,10 @@ def prime_numbers(max_n):
     return ps
 
 
-def cum(array: list):
-    cum_sum = [array[0]]
-    for i in range(len(array)-1):
-        cum_sum.append(cum_sum[-1]+array[i+1])
+def cum(array: list, key= lambda x:x):
+    cum_sum = [key(array)[0]]
+    for i in range(len(key(array))-1):
+        cum_sum.append(cum_sum[-1]+key(array)[i+1])
     return cum_sum
 
 
@@ -71,17 +71,14 @@ def STR_INs(len_n: int):
 
 # main
 
-q = IN()
-querries = INs(q, list)
-max_num = max(querries, key=lambda x: x[1])[1]
-prime_list = prime_numbers(max_num)
+n = IN()
+a = INs(2, list)
 
-ans_list = [0]*(10**5+1)
-for prime_num in prime_list:
-    if (prime_num+1)/2 in prime_list:
-        ans_list[prime_num] = 1
+cum_a_up = cum(a, key=lambda x:x[0])
+cum_a_down = cum(a[1][::-1])
 
-cum_sum = cum(ans_list)
+ans = 0
+for i in range(n):
+    ans = max(ans, cum_a_up[i]+cum_a_down[::-1][i])
 
-for l, r in querries:
-    print(cum_sum[r]-cum_sum[l-1])
+print(ans)

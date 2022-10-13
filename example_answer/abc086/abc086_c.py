@@ -71,17 +71,18 @@ def STR_INs(len_n: int):
 
 # main
 
-q = IN()
-querries = INs(q, list)
-max_num = max(querries, key=lambda x: x[1])[1]
-prime_list = prime_numbers(max_num)
+n = IN()
+travel = INs(n, list)
 
-ans_list = [0]*(10**5+1)
-for prime_num in prime_list:
-    if (prime_num+1)/2 in prime_list:
-        ans_list[prime_num] = 1
+this_time, this_x, this_y = 0, 0, 0
+for time, x, y in travel:
+    this_time += (abs(this_x-x) + abs(this_y-y))
+    if this_time <= time and (time-this_time)%2==0:
+        this_x = x
+        this_y = y
+        this_time = time
+    else:
+        print("No")
+        exit()
 
-cum_sum = cum(ans_list)
-
-for l, r in querries:
-    print(cum_sum[r]-cum_sum[l-1])
+print("Yes")

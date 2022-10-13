@@ -43,3 +43,26 @@ def STR_INs(len_n: int):
 
 
 # main
+
+def dfs(station_idx,this_time):
+    # 駅nに到着
+    if station_idx >= n-2:
+        return this_time
+    # 駅mに到着(m<n)
+    else:
+        # 出発時刻まで待つ
+        travel, departure, interval = station_info[station_idx+1]
+        
+        this_time = max(this_time, departure)
+        this_time = departure + ceil((this_time-departure)/interval)*interval
+        
+        # 移動
+        this_time += travel
+        return dfs(station_idx+1,this_time)
+n = IN()
+station_info = INs(n-1, list)
+station_info.append([0,0,0])
+
+for i in range(n):
+    time = station_info[i][0]+station_info[i][1]
+    print(dfs(i, time))

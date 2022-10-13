@@ -71,17 +71,11 @@ def STR_INs(len_n: int):
 
 # main
 
-q = IN()
-querries = INs(q, list)
-max_num = max(querries, key=lambda x: x[1])[1]
-prime_list = prime_numbers(max_num)
+n, money = IN()
 
-ans_list = [0]*(10**5+1)
-for prime_num in prime_list:
-    if (prime_num+1)/2 in prime_list:
-        ans_list[prime_num] = 1
-
-cum_sum = cum(ans_list)
-
-for l, r in querries:
-    print(cum_sum[r]-cum_sum[l-1])
+for x in range(n+1):
+    for y in range(n-x+1):
+        if x*10000 + y*5000 + (n-x-y)*1000 == money:
+            print(x,y,n-x-y)
+            exit()
+print(-1,-1,-1)
