@@ -88,6 +88,9 @@ Input contest name: abc120
 |abc078        |o|o|o|-| - | - | |
 |abc079        |o|o|o|o| - | - |D:ワーシャルフロイド法 |
 |abc080        |o|o|o|-| - | - |C:Bit探索 |
+|abc078        |o|o|o|-| - | - | |
+|abc079        |o|o|o|o| - | - |D:ワーシャルフロイド法 |
+|abc080        |o|o|o|-| - | - |C:Bit探索 |
 |abc081        |o|o|o|-| - | - | |
 |abc082        |o|o|o|-| - | - | |
 |abc083        |o|o|o|-| - | - | |
