@@ -10,9 +10,6 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 
-# 定数
-MOD = 10**9+7
-
 # 自作関数
 
 
@@ -73,3 +70,12 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n, money = IN()
+
+for x in range(n+1):
+    for y in range(n-x+1):
+        if x*10000 + y*5000 + (n-x-y)*1000 == money:
+            print(x,y,n-x-y)
+            exit()
+print(-1,-1,-1)

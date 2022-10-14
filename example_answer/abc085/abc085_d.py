@@ -10,9 +10,6 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 
-# 定数
-MOD = 10**9+7
-
 # 自作関数
 
 
@@ -40,10 +37,10 @@ def prime_numbers(max_n):
     return ps
 
 
-def cum(array: list):
-    cum_sum = [array[0]]
+def cum(array: list, key: None):
+    cum_sum = [key(array[0])]
     for i in range(len(array)-1):
-        cum_sum.append(cum_sum[-1]+array[i+1])
+        cum_sum.append(cum_sum[-1]+key(array[i+1]))
     return cum_sum
 
 
@@ -73,3 +70,21 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n, point = IN()
+attack = INs(n, list)
+
+max_attack = max(attack, key=lambda x:x[0])[0]
+pos_attack = sorted([x for _, x in attack if x > max_attack], reverse=True)
+
+ans = 0
+for damage in pos_attack:
+    ans += 1
+    point -= damage
+    if point <= 0:
+        break
+
+if point > 0:
+    ans += ceil(point/max_attack)
+
+print(ans)

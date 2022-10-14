@@ -10,9 +10,6 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 
-# 定数
-MOD = 10**9+7
-
 # 自作関数
 
 
@@ -73,3 +70,19 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+travel = INs(n, list)
+
+this_time, this_x, this_y = 0, 0, 0
+for time, x, y in travel:
+    this_time += (abs(this_x-x) + abs(this_y-y))
+    if this_time <= time and (time-this_time)%2==0:
+        this_x = x
+        this_y = y
+        this_time = time
+    else:
+        print("No")
+        exit()
+
+print("Yes")

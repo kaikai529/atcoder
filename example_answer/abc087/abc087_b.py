@@ -1,5 +1,5 @@
 from bisect import bisect_left, bisect_right
-from itertools import count
+from itertools import count, product
 from math import ceil, factorial, floor, gcd
 from collections import Counter, defaultdict
 from os import defpath
@@ -7,9 +7,6 @@ from queue import LifoQueue, Queue
 import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
-# 定数
-MOD = 10**9+7
-
 # 定数
 MOD = 10**9+7
 
@@ -73,3 +70,12 @@ def STR_INs(len_n: int):
 
 
 # main
+
+a, b, c, x = INs(4)
+
+ans = 0
+for _a, _b, _c in product(range(a+1), range(b+1), range(c+1)):
+    if _a*500+_b*100+_c*50 == x:
+        ans += 1
+
+print(ans)

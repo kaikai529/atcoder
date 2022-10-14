@@ -1,15 +1,12 @@
 from bisect import bisect_left, bisect_right
 from itertools import count
-from math import ceil, factorial, floor, gcd
+from math import ceil, factorial, floor, gcd, sqrt
 from collections import Counter, defaultdict
 from os import defpath
 from queue import LifoQueue, Queue
 import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
-# 定数
-MOD = 10**9+7
-
 # 定数
 MOD = 10**9+7
 
@@ -73,3 +70,10 @@ def STR_INs(len_n: int):
 
 
 # main
+
+a, b = IN()
+ans = int(str(a)+str(b))
+if int(sqrt(ans))**2 == ans:
+    print("Yes")
+else:
+    print("No")

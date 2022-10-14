@@ -10,9 +10,6 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 
-# 定数
-MOD = 10**9+7
-
 # 自作関数
 
 
@@ -73,3 +70,6 @@ def STR_INs(len_n: int):
 
 
 # main
+
+s = STR_IN()
+print("2018"+s[4:])

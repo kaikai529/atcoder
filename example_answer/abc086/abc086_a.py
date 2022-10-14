@@ -10,9 +10,6 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 
-# 定数
-MOD = 10**9+7
-
 # 自作関数
 
 
@@ -73,3 +70,7 @@ def STR_INs(len_n: int):
 
 
 # main
+
+a, b = IN()
+if a*b%2: print("Odd")
+else: print("Even")

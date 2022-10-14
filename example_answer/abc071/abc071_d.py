@@ -1,6 +1,4 @@
-from bisect import bisect_left, bisect_right
-from itertools import count
-from math import ceil, factorial, floor, gcd
+from math import factorial, gcd
 from collections import Counter, defaultdict
 from os import defpath
 from queue import LifoQueue, Queue
@@ -10,41 +8,12 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 
-# 定数
-MOD = 10**9+7
-
 # 自作関数
 
 
 def lcm(a, b):
     # desc: 最小公倍数を求める関数
     return a*b // gcd(a, b)
-
-
-# 素数数列を返す
-def prime_numbers(max_n):
-    ps = []
-
-    def is_prime(n):
-        for p in ps:
-            if n % p == 0:
-                return False
-            if p ** 2 >= n:
-                break
-        return True
-
-    for n in range(2, max_n+1):
-        if is_prime(n):
-            ps.append(n)
-
-    return ps
-
-
-def cum(array: list):
-    cum_sum = [array[0]]
-    for i in range(len(array)-1):
-        cum_sum.append(cum_sum[-1]+array[i+1])
-    return cum_sum
 
 
 def combination(n: int, r: int):
@@ -73,3 +42,33 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+s = STR_INs(2)
+
+idx = 0
+ans = 0
+pattern = -1
+while idx < n:
+    # pattern 1
+    if s[0][idx] == s[1][idx]:
+        if pattern == -1:
+            ans = 3
+        elif pattern == 1:
+            ans *= 2
+        else:
+            ans *= 1
+        idx += 1
+        pattern = 1
+    # pattern 2
+    else:
+        if pattern == -1:
+            ans = 6
+        elif pattern == 1:
+            ans *= 2
+        else:
+            ans *= 3
+        idx += 2
+        pattern = 2
+
+print(ans%MOD)
