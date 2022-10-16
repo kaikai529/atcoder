@@ -1,5 +1,5 @@
 from bisect import bisect_left, bisect_right
-from itertools import count, product
+from itertools import count
 from math import ceil, factorial, floor, gcd
 from collections import Counter, defaultdict
 from os import defpath
@@ -70,3 +70,19 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+a = IN(list)
+
+a.sort(reverse=True)
+
+alice_point = 0
+bob_point = 0
+for i in range(n):
+    if i%2==0:
+        alice_point += a[i]
+    else:
+        bob_point += a[i]
+
+print(alice_point-bob_point)
+

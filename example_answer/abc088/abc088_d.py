@@ -1,9 +1,11 @@
 from bisect import bisect_left, bisect_right
+from copy import deepcopy
 from itertools import count, product
 from math import ceil, factorial, floor, gcd
 from collections import Counter, defaultdict
 from os import defpath
 from queue import LifoQueue, Queue
+import queue
 import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
@@ -66,7 +68,38 @@ def INs(len_n: int, trans_func=lambda x: x):
 
 
 def STR_INs(len_n: int):
-    return [input().strip() for _ in range(len_n)]
+    return [list(input().strip()) for _ in range(len_n)]
 
 
 # main
+
+h, w = IN()
+s = STR_INs(h)
+sharp = 0
+for _h, _w in product(range(h),range(w)):
+    if s[_h][_w] == "#": sharp += 1
+
+seen = [[False]*(w) for _ in range(h)]
+dp = [[0]*w for _ in range(h)]
+vec = [(1,0),(-1,0),(0,1),(0,-1)]
+
+q = Queue()
+q.put((0,0))
+seen[0][0] = True
+dp[0][0] = 1
+
+while not q.empty():
+    y, x = q.get()
+    for dy, dx in vec:
+        if 0 <= y+dy < h and 0<= x+dx < w:
+            if s[y+dy][x+dx] == "." and seen[y+dy][x+dx]==False:
+                dp[y+dy][x+dx] = dp[y][x] + 1
+                seen[y+dy][x+dx] = True
+                q.put((y+dy,x+dx))
+
+min_distance = dp[h-1][w-1]
+if min_distance == 0:
+    print(-1)
+else:
+    print(h*w-sharp-min_distance)
+

@@ -1,5 +1,5 @@
 from bisect import bisect_left, bisect_right
-from itertools import count, product
+from itertools import count
 from math import ceil, factorial, floor, gcd
 from collections import Counter, defaultdict
 from os import defpath
@@ -70,3 +70,10 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n ,a = INs(2)
+
+if n%500 <= a:
+    print("Yes")
+else:
+    print("No")
