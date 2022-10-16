@@ -1,5 +1,5 @@
 from bisect import bisect_left, bisect_right
-from itertools import combinations, count, product
+from itertools import combinations, count
 from math import ceil, factorial, floor, gcd
 from collections import Counter, defaultdict
 from os import defpath
@@ -70,3 +70,19 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+s = STR_INs(n)
+cnt_s = defaultdict(int)
+
+for _s in s:
+    cnt_s[_s[0]] += 1
+
+ans = 0
+for first_names in combinations(["M", "A", "R", "C", "H"],3):
+    tmp_ans = 1
+    for first_name in first_names:
+        tmp_ans *= cnt_s[first_name]
+    ans += tmp_ans
+
+print(ans)
