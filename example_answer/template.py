@@ -1,5 +1,5 @@
 from bisect import bisect_left, bisect_right
-from itertools import combinations, count
+from itertools import combinations, count, product
 from math import ceil, factorial, floor, gcd
 from collections import Counter, defaultdict
 from os import defpath
@@ -66,7 +66,7 @@ def INs(len_n: int, trans_func=lambda x: x):
 
 
 def STR_INs(len_n: int):
-    return [STR_IN() for _ in range(len_n)]
+    return [input().strip() for _ in range(len_n)]
 
 
 # main

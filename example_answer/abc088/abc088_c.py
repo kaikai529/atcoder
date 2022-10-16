@@ -1,5 +1,5 @@
 from bisect import bisect_left, bisect_right
-from itertools import count
+from itertools import count, product
 from math import ceil, factorial, floor, gcd
 from collections import Counter, defaultdict
 from os import defpath
@@ -7,9 +7,6 @@ from queue import LifoQueue, Queue
 import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
-# 定数
-MOD = 10**9+7
-
 # 定数
 MOD = 10**9+7
 
@@ -40,10 +37,10 @@ def prime_numbers(max_n):
     return ps
 
 
-def cum(array: list):
-    cum_sum = [array[0]]
-    for i in range(len(array)-1):
-        cum_sum.append(cum_sum[-1]+array[i+1])
+def cum(array: list, key= lambda x:x):
+    cum_sum = [key(array)[0]]
+    for i in range(len(key(array))-1):
+        cum_sum.append(cum_sum[-1]+key(array)[i+1])
     return cum_sum
 
 
@@ -73,3 +70,15 @@ def STR_INs(len_n: int):
 
 
 # main
+
+c = INs(3, list)
+
+for a1,a2,a3 in product(range(101), range(101), range(101)):
+    if c[0][0]-a1 == c[0][1]-a2 == c[0][2]-a3 \
+        and c[1][0]-a1 == c[1][1]-a2 == c[1][2]-a3 \
+        and c[2][0]-a1 == c[2][1]-a2 == c[2][2]-a3:
+
+        print("Yes")
+        exit()
+
+print("No")
