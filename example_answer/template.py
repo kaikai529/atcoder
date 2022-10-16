@@ -1,5 +1,5 @@
 from bisect import bisect_left, bisect_right
-from itertools import combinations, count
+from itertools import combinations, count, product
 from math import ceil, factorial, floor, gcd
 from collections import Counter, defaultdict
 from os import defpath

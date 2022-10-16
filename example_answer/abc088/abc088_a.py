@@ -10,9 +10,6 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 
-# 定数
-MOD = 10**9+7
-
 # 自作関数
 
 
@@ -40,10 +37,10 @@ def prime_numbers(max_n):
     return ps
 
 
-def cum(array: list):
-    cum_sum = [array[0]]
-    for i in range(len(array)-1):
-        cum_sum.append(cum_sum[-1]+array[i+1])
+def cum(array: list, key= lambda x:x):
+    cum_sum = [key(array)[0]]
+    for i in range(len(key(array))-1):
+        cum_sum.append(cum_sum[-1]+key(array)[i+1])
     return cum_sum
 
 
@@ -73,3 +70,10 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n ,a = INs(2)
+
+if n%500 <= a:
+    print("Yes")
+else:
+    print("No")
