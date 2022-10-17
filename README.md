@@ -103,6 +103,7 @@ Input contest name: abc120
 |abc089        |o|o|o|-| - | - | |
 |abc090        |o|o|o|o| - | - | |
 |abc091        |o|o|-|-| - | - | |
+|abc092        |o|o|o|-| - | - | |
 |-        |-|-|-|-| - | - | |
 |abc175        |o|o|o|-| - | - | |
 |abc176        |o|o|o|-| - | - | |
