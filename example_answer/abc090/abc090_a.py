@@ -70,3 +70,6 @@ def STR_INs(len_n: int):
 
 
 # main
+
+s = STR_INs(3)
+for i in range(3): print(s[i][i], end="")

@@ -70,3 +70,15 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n, k = IN()
+
+
+ans = 0
+if k == 0:
+    ans = n*n
+else:
+    for b in range(1,n+1):
+        ans += n//b*max(0,b-k) + max(0, n%b-k+1)
+
+print(ans)

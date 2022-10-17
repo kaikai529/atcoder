@@ -70,3 +70,14 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n, m = IN()
+
+if n == 1 and m == 1:
+    ans = 1
+elif n == 1 or m == 1:
+    ans = max(0,m-2,n-2)
+else:
+    ans = max(0, n*m-2*m-2*(n-2))
+
+print(ans)

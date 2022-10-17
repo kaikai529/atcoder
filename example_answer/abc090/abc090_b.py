@@ -70,3 +70,12 @@ def STR_INs(len_n: int):
 
 
 # main
+
+a, b = IN()
+
+ans = 0
+for i in range(a,b+1):
+    string = str(i)
+    if string == string[::-1]:
+        ans += 1
+print(ans)

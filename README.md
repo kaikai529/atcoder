@@ -100,6 +100,7 @@ Input contest name: abc120
 |abc087        |o|o|o|-| - | - |C:累積和 |
 |abc088        |o|o|o|o| - | - |D:幅優先探索 |
 |abc089        |o|o|o|-| - | - | |
+|abc090        |o|o|o|o| - | - | |
 |-        |-|-|-|-| - | - | |
 |abc175        |o|o|o|-| - | - | |
 |abc176        |o|o|o|-| - | - | |
