@@ -70,3 +70,14 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n, m, x = IN()
+a = IN(list)
+
+gate = [0]*(n+1)
+for _a in a:
+    gate[_a-1] = 1
+
+print(min(sum(gate[:x]), sum(gate[x-1:])))
+
+

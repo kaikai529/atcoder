@@ -70,3 +70,16 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+a = IN(list)
+a.sort(reverse=True)
+
+ai = a[0]
+aj = 0
+for _a in a:
+    if abs(ai/2-_a) < abs(ai/2-aj):
+        aj = _a
+
+print(ai, aj)
+

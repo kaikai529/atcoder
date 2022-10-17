@@ -56,9 +56,9 @@ def IN(trans_func=lambda x: x):
     return int(*input_) if len(input_) == 1 else map(int, input_)
 
 
-def STR_IN(trans_func=lambda x:x):
+def STR_IN():
     input_ = input().strip().split()
-    return trans_func(input_[0]) if len(input_) == 1 else input_
+    return input_[0] if len(input_) == 1 else input_
 
 
 def INs(len_n: int, trans_func=lambda x: x):

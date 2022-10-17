@@ -70,3 +70,16 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+x = IN(list)
+sort_x = sorted(x)
+center = (sort_x[(n-1)//2] + sort_x[(n+1)//2])/2
+
+for _x in x:
+    if _x < center:
+        print(sort_x[(n+1)//2])
+    else:
+        print(sort_x[(n-1)//2])
+
+

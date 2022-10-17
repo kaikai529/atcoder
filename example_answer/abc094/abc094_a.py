@@ -70,3 +70,9 @@ def STR_INs(len_n: int):
 
 
 # main
+
+a, b, x = IN()
+if 0 <= x-a <= b:
+    print("YES")
+else:
+    print("NO")
