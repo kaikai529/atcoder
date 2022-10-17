@@ -70,3 +70,11 @@ def STR_INs(len_n: int):
 
 
 # main
+
+s = set(STR_IN(list))
+if set(["a","b","c"]) == s:
+    print("Yes")
+else:
+    print("No")
+
+

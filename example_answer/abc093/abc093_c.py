@@ -56,9 +56,9 @@ def IN(trans_func=lambda x: x):
     return int(*input_) if len(input_) == 1 else map(int, input_)
 
 
-def STR_IN(trans_func=lambda x:x):
+def STR_IN():
     input_ = input().strip().split()
-    return trans_func(input_[0]) if len(input_) == 1 else input_
+    return input_[0] if len(input_) == 1 else input_
 
 
 def INs(len_n: int, trans_func=lambda x: x):
@@ -70,3 +70,27 @@ def STR_INs(len_n: int):
 
 
 # main
+
+numbers = IN(list)
+numbers.sort()
+
+ans = 0
+
+# 最小値と中央値を揃える
+sub = numbers[1] - numbers[0]
+
+## 操作1
+numbers[0] += 2*(sub//2)
+ans += sub//2
+
+## 操作2
+numbers[0] += sub%2
+numbers[2] += sub%2
+ans += sub%2
+
+# 最小値（中央値）と最大値を揃える
+## 操作2
+sub = numbers[2] - numbers[0]
+ans += sub
+
+print(ans)
