@@ -1,6 +1,6 @@
 from bisect import bisect_left, bisect_right
 from itertools import combinations, count, permutations, product
-from math import ceil, factorial, floor, gcd, inf
+from math import ceil, factorial, floor, gcd
 from collections import Counter, defaultdict
 from os import defpath
 from queue import LifoQueue, Queue
@@ -71,3 +71,22 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+s = STR_IN()
+
+init_west = [0]*n
+init_east = [0]*n
+for i, _s in enumerate(s):
+    if _s =="E":
+        init_east[i] = 1
+    else:
+        init_west[i] = 1
+
+cum_west = cum(init_west)
+cum_east = cum(init_east[::-1])
+ans = min(cum_west[-1], cum_east[-1])
+for i in range(1,n-1):
+    ans = min(ans, cum_west[i-1]+cum_east[n-i-2])
+
+print(ans)

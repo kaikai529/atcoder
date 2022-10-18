@@ -71,3 +71,27 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+
+# すべて1円で引き出した回数を基準とする
+dp = [i for i in range(n+1)]
+
+# より最小の回数で引き出せる操作で上書きする
+for cu in range(1,n+1):
+    # 6円の場合
+    x = 6
+    while x <= cu:
+        dp[cu] = min(dp[cu],dp[cu-x]+1)
+        x *= 6
+
+    # 9円の場合
+    x = 9
+    while x <= cu:
+        dp[cu] = min(dp[cu], dp[cu-x]+1)
+        x *= 9
+
+print(dp[n])
+
+
+

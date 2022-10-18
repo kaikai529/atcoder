@@ -71,3 +71,8 @@ def STR_INs(len_n: int):
 
 
 # main
+
+d, n = IN()
+
+if n==100: n = 101
+print(100**d*n)

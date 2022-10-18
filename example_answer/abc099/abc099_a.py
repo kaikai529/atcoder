@@ -1,6 +1,6 @@
 from bisect import bisect_left, bisect_right
 from itertools import combinations, count, permutations, product
-from math import ceil, factorial, floor, gcd, inf
+from math import ceil, factorial, floor, gcd
 from collections import Counter, defaultdict
 from os import defpath
 from queue import LifoQueue, Queue
@@ -71,3 +71,10 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+
+if 1 <= n <= 999:
+    print("ABC")
+else:
+    print("ABD")

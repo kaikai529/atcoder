@@ -71,3 +71,9 @@ def STR_INs(len_n: int):
 
 
 # main
+
+a, b = IN()
+if a <= 8 and b <= 8:
+    print("Yay!")
+else:
+    print(":(")
