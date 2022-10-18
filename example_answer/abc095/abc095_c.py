@@ -1,5 +1,5 @@
 from bisect import bisect_left, bisect_right
-from itertools import combinations, count, permutations, product
+from itertools import combinations, count, product
 from math import ceil, factorial, floor, gcd
 from collections import Counter, defaultdict
 from os import defpath
@@ -9,8 +9,7 @@ sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
-VEC4 = [(1,0),(-1,0),(0,1),(0,-1)]
-VEC9 = product([-1,0,1],[-1,0,1])
+
 # 自作関数
 
 
@@ -71,3 +70,18 @@ def STR_INs(len_n: int):
 
 
 # main
+
+a, b, c, x, y = IN()
+
+ans = 0
+if a + b < 2*c:
+    ans += a*x+b*y
+else:
+    ans += min(x,y)*2*c
+    if x-y>0:
+        ans += min(a, 2*c)*(x-y)
+    elif x-y<0:
+        ans += min(b, 2*c)*(y-x)
+
+print(ans)
+    

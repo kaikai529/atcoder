@@ -10,7 +10,7 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 VEC4 = [(1,0),(-1,0),(0,1),(0,-1)]
-VEC9 = product([-1,0,1],[-1,0,1])
+VEC8 = [i for i in product([-1,0,1],[-1,0,1]) if i!=(0,0)]
 # 自作関数
 
 
@@ -71,3 +71,24 @@ def STR_INs(len_n: int):
 
 
 # main
+h, w = IN()
+s = STR_INs(h)
+
+for _h, _w in product(range(h),range(w)):
+    if s[_h][_w]==".":
+        continue
+
+    flag = False
+    for dh,dw in VEC4:
+        if not (0 <= _h+dh < h and 0 <= _w+dw < w):
+            continue
+
+        if s[_h+dh][_w+dw] == "#":
+            flag = True
+        
+    if not flag:
+        print("No")
+        exit()
+
+print("Yes")
+        
