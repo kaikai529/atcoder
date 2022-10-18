@@ -108,6 +108,7 @@ Input contest name: abc120
 |abc094        |o|o|o|o| - | - | |
 |abc095        |o|o|o|-| - | - | |
 |abc096        |o|o|o|-| - | - | |
+|abc097        |o|o|o|-| - | - |C:k<=5を用いる |
 |-        |-|-|-|-| - | - | |
 |abc175        |o|o|o|-| - | - | |
 |abc176        |o|o|o|-| - | - | |
