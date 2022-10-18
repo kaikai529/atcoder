@@ -71,3 +71,14 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+a = IN(list)
+
+ans = 0
+for _a in a:
+    while _a%2==0:
+        _a /= 2
+        ans += 1
+
+print(ans)

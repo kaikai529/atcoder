@@ -1,6 +1,6 @@
 from bisect import bisect_left, bisect_right
 from itertools import combinations, count, permutations, product
-from math import ceil, factorial, floor, gcd, inf
+from math import ceil, factorial, floor, gcd
 from collections import Counter, defaultdict
 from os import defpath
 from queue import LifoQueue, Queue
@@ -39,9 +39,9 @@ def prime_numbers(max_n):
 
 
 def cum(array: list, key= lambda x:x):
-    cum_sum = [key(array[0])]
-    for i in range(len(array)-1):
-        cum_sum.append(cum_sum[-1]+key(array[i+1]))
+    cum_sum = [key(array)[0]]
+    for i in range(len(key(array))-1):
+        cum_sum.append(cum_sum[-1]+key(array)[i+1])
     return cum_sum
 
 
@@ -71,3 +71,29 @@ def STR_INs(len_n: int):
 
 
 # main
+
+s = STR_IN()
+k = IN()
+
+cnt = 0
+cnt_s = Counter(s)
+keys = sorted(cnt_s.keys())
+for key in keys:
+    pos_ans = set()
+    for i in range(len(s)):
+        if s[i] == key:
+            for j in range(min(len(s)-i, 5)):
+                pos_ans.add(s[i:i+j+1])
+    
+    if k<=cnt+len(pos_ans):
+        pos_ans = list(pos_ans)
+        pos_ans.sort()
+        break
+
+    cnt += len(pos_ans)
+
+print(pos_ans[k-cnt-1])
+
+
+
+
