@@ -71,7 +71,10 @@ def STR_INs(len_n: int):
 
 
 # main
-
+"""
+x線上に存在するデータから
+中央値を引くことで最小になる
+"""
 n = IN()
 a = IN(list)
 a = [a[i]-(i+1) for i in range(n)]
