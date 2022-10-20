@@ -78,7 +78,7 @@ x線上に存在するデータから
 n = IN()
 a = IN(list)
 a = [a[i]-(i+1) for i in range(n)]
-
+a.sort()
 if n%2==1:
     b = a[n//2]
 else:
