@@ -6,7 +6,7 @@
 - Step1. レポジトリをクローンしましょう!
 
 ~~~
-git clone https://github.com/kaikai529/atcoder.git
+git clone https://github.com/kaikai529/atcoder_python.git
 ~~~
 
 ※ gitをインストールしてない人はしてください. <br>
