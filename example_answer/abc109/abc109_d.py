@@ -82,3 +82,24 @@ def STR_INs(len_n: int):
 
 
 # main
+
+h , w = IN()
+a = INs(h, list)
+cnt = 0
+actions = []
+for _h, _w in product(range(h), range(w-1)):
+    if a[_h][_w]%2 == 1:
+        cnt += 1
+        a[_h][_w] -= 1
+        a[_h][_w+1] += 1
+        actions.append((_h+1, _w+1, _h+1,_w+2))
+
+for _h in range(h-1):
+    if a[_h][-1]%2 == 1:
+        cnt += 1
+        a[_h][-1] -= 1
+        a[_h+1][-1] += 1
+        actions.append((_h+1, w, _h+2, w))
+
+print(cnt)
+for action in actions: print(*action)

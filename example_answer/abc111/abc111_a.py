@@ -82,3 +82,14 @@ def STR_INs(len_n: int):
 
 
 # main
+s = STR_IN()
+ans = ""
+for _s in s:
+    if _s=="1":
+        ans += "9"
+    elif _s=="9":
+        ans += "1"
+    else:
+        ans += _s
+
+print(ans)

@@ -82,3 +82,10 @@ def STR_INs(len_n: int):
 
 
 # main
+
+a, b = IN()
+
+if a*b%2 == 0:
+    print("No")
+else:
+    print("Yes")

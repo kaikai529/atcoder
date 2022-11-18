@@ -82,3 +82,20 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+words = STR_INs(n)
+
+# condition1
+words_cnt = Counter(words)
+if len(words_cnt) != n:
+    print("No")
+    exit()
+
+# condition2
+for idx in range(n-1):
+    if words[idx][-1] != words[idx+1][0]:
+        print("No")
+        exit()
+
+print("Yes")

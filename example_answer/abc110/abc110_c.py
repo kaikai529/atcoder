@@ -82,3 +82,40 @@ def STR_INs(len_n: int):
 
 
 # main
+
+def lan(string):
+    re_list = [[string[0],1]]
+    for i in range(1, len(string)):
+        if re_list[-1][0] == string[i]:
+            re_list[-1][1] += 1
+        else:
+            re_list.append([string[i],1])
+    return re_list
+
+s = STR_IN()
+t = STR_IN()
+
+flag = True
+# condition1
+cnt_s = sorted(Counter(s).items(), reverse=True, key=lambda x:x[1])
+cnt_t = sorted(Counter(t).items(), reverse=True, key=lambda x:x[1])
+if len(cnt_s) == len(cnt_t):
+    for _s, _t in zip(cnt_s, cnt_t):
+        if _s[1] != _t[1]:
+            flag = False
+            break
+else:
+    flag = False
+
+# condition2
+lanrengs_s = lan(s)
+lanrengs_t = lan(t)
+if len(lanrengs_s) == len(lanrengs_t):
+    for _s, _t in zip(lanrengs_s, lanrengs_t):
+        if _s[1] != _t[1]:
+            break
+else:
+    flag = False
+
+if flag: print("Yes")
+else: print("No")

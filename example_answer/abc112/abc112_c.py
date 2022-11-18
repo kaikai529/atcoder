@@ -82,3 +82,25 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+pyramid = INs(n, list)
+
+for pos_x, pos_y in product(range(101), range(101)):
+    hight = set()
+    for x, y, h in pyramid:
+        if h>0:
+            hight.add(h+abs(pos_x-x)+abs(pos_y-y))
+    
+    H = hight.pop()
+    ok = True
+    for x, y, h in pyramid:
+        if h != max(0,H-abs(pos_x-x)-abs(pos_y-y)):
+            ok = False
+            break
+    
+    if ok:
+        print(pos_x, pos_y, H)
+        break
+
+    

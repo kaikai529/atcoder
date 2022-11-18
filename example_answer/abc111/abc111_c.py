@@ -82,3 +82,33 @@ def STR_INs(len_n: int):
 
 
 # main
+n = IN()
+v = IN(list)
+
+odd, even = [], []
+for i, _v in enumerate(v):
+    if i%2==1:
+        odd.append(_v)
+    else:
+        even.append(_v)
+
+cnt_odd = sorted(Counter(odd).items(),key=lambda x:x[1],reverse=True)
+cnt_even = sorted(Counter(even).items(),key=lambda x:x[1],reverse=True)
+
+
+if cnt_odd[0][0]!=cnt_even[0][0]:
+    print(n-cnt_odd[0][1]-cnt_even[0][1])
+    exit()
+
+if len(cnt_even)==1 and len(cnt_odd)==1:
+    print(n//2)
+    exit()
+ 
+ans = inf
+if len(cnt_odd)>=2:
+    ans = min(ans,n-(cnt_even[0][1] + cnt_odd[1][1]))
+if len(cnt_even)>=2:
+    ans = min(ans, n-(cnt_even[1][1] + cnt_odd[0][1]))
+print(ans)
+
+    

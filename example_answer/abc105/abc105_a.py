@@ -1,6 +1,6 @@
 from bisect import bisect_left, bisect_right
 from itertools import combinations, count, permutations, product
-from math import ceil, factorial, floor, gcd, inf, sqrt
+from math import ceil, factorial, floor, gcd, inf
 from collections import Counter, defaultdict
 from os import defpath
 from queue import LifoQueue, Queue
@@ -9,8 +9,8 @@ sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
-VEC4 = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-VEC9 = product([-1, 0, 1], [-1, 0, 1])
+VEC4 = [(1,0),(-1,0),(0,1),(0,-1)]
+VEC9 = product([-1,0,1],[-1,0,1])
 # 自作関数
 
 
@@ -37,19 +37,8 @@ def prime_numbers(max_n):
 
     return ps
 
-# 約数を返す
 
-
-def divisor(n: int):
-    ans = []
-    for i in range(1, ceil(sqrt(n))):
-        if n % i == 0:
-            ans.append(i)
-            ans.append(n//i)
-    return ans
-
-
-def cum(array: list, key=lambda x: x):
+def cum(array: list, key= lambda x:x):
     cum_sum = [key(array[0])]
     for i in range(len(array)-1):
         cum_sum.append(cum_sum[-1]+key(array[i+1]))
@@ -68,7 +57,7 @@ def IN(trans_func=lambda x: x):
     return int(*input_) if len(input_) == 1 else map(int, input_)
 
 
-def STR_IN(trans_func=lambda x: x):
+def STR_IN(trans_func=lambda x:x):
     input_ = input().strip().split()
     return trans_func(input_[0]) if len(input_) == 1 else input_
 
@@ -82,3 +71,10 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n, k = IN()
+
+if n%k==0:
+    print(0)
+else:
+    print(1)

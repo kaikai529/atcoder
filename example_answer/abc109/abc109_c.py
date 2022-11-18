@@ -82,3 +82,13 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n, init_x = IN()
+x = IN(list)
+distance = [_x-init_x for _x in x]
+
+ans = gcd(distance[-1], distance[0])
+for i in range(n-1):
+    ans = min(ans, gcd(distance[i], distance[i+1]))
+
+print(ans)

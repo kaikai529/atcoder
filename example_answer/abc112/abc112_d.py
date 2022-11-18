@@ -82,3 +82,11 @@ def STR_INs(len_n: int):
 
 
 # main
+n, m = IN()
+
+for this_gcd in [*sorted(divisor(m), reverse=True),1]:
+    if this_gcd*n <= m: 
+        ans = this_gcd
+        break
+
+print(ans)

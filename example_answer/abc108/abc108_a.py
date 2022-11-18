@@ -82,3 +82,6 @@ def STR_INs(len_n: int):
 
 
 # main
+
+k = IN()
+print(k//2*ceil(k/2))

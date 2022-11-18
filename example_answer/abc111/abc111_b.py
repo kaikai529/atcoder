@@ -82,3 +82,9 @@ def STR_INs(len_n: int):
 
 
 # main
+n = IN()
+
+for _n in range(n,n+111):
+    if _n%111==0:
+        print(_n)
+        exit()

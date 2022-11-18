@@ -1,5 +1,5 @@
 from bisect import bisect_left, bisect_right
-from itertools import combinations, count, permutations, product
+from itertools import combinations, combinations_with_replacement, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
 from collections import Counter, defaultdict
 from os import defpath
@@ -82,3 +82,18 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n, k = IN()
+condidation_m0 = [i for i in range(1,n+1) if i%k==0]
+
+if k%2 == 0:
+    condidation_mk = [i for i in range(1,n+1) if i%k==k//2]
+else:    
+    condidation_mk = []
+
+
+print(len(condidation_m0)**3+len(condidation_mk)**3)
+
+
+
+

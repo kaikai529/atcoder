@@ -82,3 +82,14 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n, m, x, y = IN()
+city_x = IN(list)
+city_y = IN(list)
+
+for z in range(x+1,y+1):
+    if max(city_x)<z and z<=min(city_y):
+        print("No War")
+        exit()
+
+print("War")

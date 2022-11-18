@@ -82,3 +82,35 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n, k = IN()
+x = IN(list)
+
+neg_x = []
+pos_x = []
+
+for _x in x:
+    if _x < 0:
+        neg_x.append(_x)
+    else:
+        pos_x.append(_x)
+neg_x = neg_x[::-1]
+ans = inf
+
+for i, neg in enumerate(neg_x):
+    if i+1 == k:
+        ans = min(ans, abs(neg_x[k-1]))
+        break
+    if k-i-1 <= len(pos_x):
+        ans = min(ans, 2*abs(neg)+pos_x[k-i-2])
+
+for i, pos in enumerate(pos_x):
+    if i+1==k:
+        ans = min(ans, pos_x[k-1])
+        break
+    if k-i-1 <= len(neg_x):
+        ans = min(ans, 2*pos+abs(neg_x[k-i-2]))
+    
+print(ans)
+    
+

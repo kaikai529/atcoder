@@ -82,3 +82,12 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n = IN()
+
+ans = 0
+for i in range(1, n+1, 2):
+    if len(divisor(i)) == 8:
+        ans += 1
+
+print(ans)

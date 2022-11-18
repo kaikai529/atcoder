@@ -82,3 +82,9 @@ def STR_INs(len_n: int):
 
 
 # main
+query_num = IN()
+if query_num==1:
+    print("Hello World")
+elif query_num==2:
+    a, b = INs(2)
+    print(a+b)

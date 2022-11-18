@@ -82,3 +82,11 @@ def STR_INs(len_n: int):
 
 
 # main
+n, t = IN()
+resource = INs(n, list)
+pos = [cost for cost,time in resource if time <= t]
+
+if len(pos)==0:
+    print("TLE")
+else:
+    print(min(pos))

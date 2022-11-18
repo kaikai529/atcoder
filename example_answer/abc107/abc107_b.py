@@ -82,3 +82,21 @@ def STR_INs(len_n: int):
 
 
 # main
+
+h, w = IN()
+a = STR_INs(h)
+ans = [list(_a) for _a in a]
+remove = []
+for _h in range(h):
+    if a[_h] == "."*w :
+        remove.append(_h)
+
+for _w in range(w):
+    if [_a[_w] for _a in a] == list("."*h):
+        for idx in range(h):
+            ans[idx][_w] = ""
+
+for _h in range(h): 
+    if _h in remove:
+        continue
+    print("".join(ans[_h]))

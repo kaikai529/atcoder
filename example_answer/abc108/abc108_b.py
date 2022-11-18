@@ -1,6 +1,6 @@
 from bisect import bisect_left, bisect_right
 from itertools import combinations, count, permutations, product
-from math import ceil, factorial, floor, gcd, inf, sqrt
+from math import ceil, cos, factorial, floor, gcd, inf, pi, sin, sqrt
 from collections import Counter, defaultdict
 from os import defpath
 from queue import LifoQueue, Queue
@@ -38,8 +38,6 @@ def prime_numbers(max_n):
     return ps
 
 # 約数を返す
-
-
 def divisor(n: int):
     ans = []
     for i in range(1, ceil(sqrt(n))):
@@ -47,7 +45,6 @@ def divisor(n: int):
             ans.append(i)
             ans.append(n//i)
     return ans
-
 
 def cum(array: list, key=lambda x: x):
     cum_sum = [key(array[0])]
@@ -81,4 +78,24 @@ def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
 
+
 # main
+
+# 回転行列
+def rotation(x, y, matrix):
+    rot_x = x*matrix[0][0] + y*matrix[0][1]
+    rot_y = x*matrix[1][0] + y*matrix[1][1]
+    return rot_x, rot_y
+
+x1, y1, x2, y2 = IN()
+rotation_matrix = [[0, -1],[1,0]]
+## point3
+rot_x, rot_y = rotation(x2 - x1, y2 - y1, rotation_matrix)
+x3 = x2+rot_x
+y3 = y2+rot_y
+
+## point4
+x4 = x1+rot_x
+y4 = y1+rot_y
+
+print(x3,y3,x4,y4)

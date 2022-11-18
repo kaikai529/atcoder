@@ -82,3 +82,9 @@ def STR_INs(len_n: int):
 
 
 # main
+
+a = IN(list)
+a.sort(reverse=True)
+
+print(a[0]*10+a[1]+a[2])
+

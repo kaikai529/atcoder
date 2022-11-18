@@ -82,3 +82,6 @@ def STR_INs(len_n: int):
 
 
 # main
+
+n, i = IN()
+print(n-i+1)
