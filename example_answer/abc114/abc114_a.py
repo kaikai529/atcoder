@@ -1,5 +1,5 @@
 from bisect import bisect_left, bisect_right
-from itertools import combinations, count, permutations, product, combinations_with_replacement
+from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
 from collections import Counter, defaultdict
 from os import defpath
@@ -82,32 +82,3 @@ def STR_INs(len_n: int):
 
 
 # main
-
-ans = set()
-def dfs(string):
-    global ans
-    if int(string)>n: return
-    elif len(Counter(string))==3:
-        ans.add(string)
-    for pos in "357":
-        dfs(string+pos)
-
-n = IN()
-for i in "357":
-    dfs(i)
-
-print(len(ans))
-
-
-""" TLE
-ans = set()
-for i in range(max(0,len(str(n))-2)):
-    for com in combinations_with_replacement(["0","3","5","7"],i):
-        temp = list(["3","5","7"])
-        temp.extend([i for i in com if i!="0"])
-        for per in permutations(temp, len(temp)):
-            if int("".join(per))<=n:
-                ans.add("".join(per))
- 
-print(len(ans))
-"""
