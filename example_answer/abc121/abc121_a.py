@@ -82,3 +82,7 @@ def STR_INs(len_n: int):
 
 
 # main
+h, w = IN()
+i, j = IN()
+
+print((h-i)*(w-j))
