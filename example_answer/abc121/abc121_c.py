@@ -82,3 +82,14 @@ def STR_INs(len_n: int):
 
 
 # main
+n, m = IN()
+shop = INs(n, list)
+
+ans = 0
+shop = sorted(shop, key=lambda x:x[0])
+for idx in range(n):
+    price, num = shop[idx]
+    ans += min(num, m)*price
+    m -= min(num, m)
+
+print(ans)

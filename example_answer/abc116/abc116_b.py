@@ -42,7 +42,7 @@ def prime_numbers(max_n):
 
 def divisor(n: int):
     ans = []
-    for i in range(1, ceil(sqrt(n))+1):
+    for i in range(1, ceil(sqrt(n))):
         if n % i == 0:
             ans.append(i)
             ans.append(n//i)
@@ -82,3 +82,22 @@ def STR_INs(len_n: int):
 
 
 # main
+def func(num):
+    if num%2==0:
+        return num//2
+    else:
+        return 3*num+1
+
+s = IN()
+flag = [0]*(10**6+1)
+flag[s] = 1
+this_s = s
+for i in range(2, 10**6+5):
+    this_s = func(this_s)
+    if flag[this_s]==1:
+        print(i)
+        exit()
+    flag[this_s] = 1
+
+
+

@@ -1,4 +1,5 @@
 from bisect import bisect_left, bisect_right
+from datetime import datetime
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
 from collections import Counter, defaultdict
@@ -42,7 +43,7 @@ def prime_numbers(max_n):
 
 def divisor(n: int):
     ans = []
-    for i in range(1, ceil(sqrt(n))+1):
+    for i in range(1, ceil(sqrt(n))):
         if n % i == 0:
             ans.append(i)
             ans.append(n//i)
@@ -82,3 +83,11 @@ def STR_INs(len_n: int):
 
 
 # main
+s = STR_IN()
+sd_dt = datetime(2019,4,30).strftime("%Y/%m/%d")
+dt = datetime.strptime(s, "%Y/%m/%d").strftime('%Y/%m/%d')
+
+if dt <= sd_dt:
+    print("Heisei")
+else:
+    print("TBD")

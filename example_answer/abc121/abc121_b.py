@@ -82,3 +82,16 @@ def STR_INs(len_n: int):
 
 
 # main
+n, m, c = IN()
+b = IN(list)
+a = INs(n, list)
+
+ans = 0
+for element_a in a:
+    total = 0
+    for _a, _b in zip(element_a, b):
+        total += _a*_b
+    
+    if total > -c: ans+=1
+
+print(ans)

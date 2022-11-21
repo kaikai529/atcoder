@@ -82,3 +82,14 @@ def STR_INs(len_n: int):
 
 
 # main
+a, b = IN()
+num = b-a+1
+
+d = 2
+digit = [0]*45
+for i in range(45):
+    if (b<<i)&i: digit[i]+=1
+    digit[i] += num//d
+    d*=2
+
+print(digit)

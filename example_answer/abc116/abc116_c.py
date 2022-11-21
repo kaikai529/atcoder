@@ -42,7 +42,7 @@ def prime_numbers(max_n):
 
 def divisor(n: int):
     ans = []
-    for i in range(1, ceil(sqrt(n))+1):
+    for i in range(1, ceil(sqrt(n))):
         if n % i == 0:
             ans.append(i)
             ans.append(n//i)
@@ -82,3 +82,33 @@ def STR_INs(len_n: int):
 
 
 # main
+def index_multi(array, key):
+    ans = []
+    for i, element in enumerate(array):
+        if element==key:
+            ans.append(i)
+    return ans
+
+n = IN()
+h = IN(list)
+
+ans = 0
+q = Queue()
+q.put(h)
+while not q.empty():
+    p = q.get()
+    if len(p)==0: continue
+    if max(p)==0: continue
+    
+    p_min = min(p)
+    ans+=p_min
+    for i in range(len(p)): p[i]-=p_min
+    
+    pos = [-1,*index_multi(p,0),len(p)]
+    for i in range(len(pos)-1):
+        pos1, pos2 = pos[i], pos[i+1]
+        if p[pos1+1:pos2]!=[]:
+           q.put(p[pos1+1:pos2])
+    
+    
+print(ans)

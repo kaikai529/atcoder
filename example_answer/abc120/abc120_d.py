@@ -42,7 +42,7 @@ def prime_numbers(max_n):
 
 def divisor(n: int):
     ans = []
-    for i in range(1, ceil(sqrt(n))+1):
+    for i in range(1, ceil(sqrt(n))):
         if n % i == 0:
             ans.append(i)
             ans.append(n//i)
