@@ -82,3 +82,10 @@ def STR_INs(len_n: int):
 
 
 # main
+a, b, k = IN()
+
+div_a = set(divisor(a))
+div_b = set(divisor(b))
+
+div = sorted(list(div_a & div_b), reverse=True)
+print(div[k-1])
