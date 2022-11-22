@@ -132,7 +132,8 @@ Input contest name: abc120
 |abc118        |o|o|△|-| - | - |C:思考問題 |
 |abc119        |o|o|-|-| - | - |A:datetime |
 |abc120        |o|o|o|-| - | - |C:Queue |
-|abc119        |o|o|-|-| - | - |A:datetime |
+|abc121        |o|o|o|-| - | - | |
+|abc122        |o|o|o|-| - | - | |
 |-        |-|-|-|-| - | - | |
 |abc175        |o|o|o|-| - | - | |
 |abc176        |o|o|o|-| - | - | |
