@@ -134,6 +134,8 @@ Input contest name: abc120
 |abc120        |o|o|o|-| - | - |C:Queue |
 |abc121        |o|o|o|-| - | - | |
 |abc122        |o|o|o|-| - | - | |
+|abc122        |o|o|o|-| - | - | |
+|abc122        |o|o|o|△| - | - |D:尺取法 |
 |-        |-|-|-|-| - | - | |
 |abc175        |o|o|o|-| - | - | |
 |abc176        |o|o|o|-| - | - | |

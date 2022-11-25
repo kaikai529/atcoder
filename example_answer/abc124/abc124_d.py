@@ -92,3 +92,26 @@ def STR_INs(len_n: int):
 
 # main
 
+
+# main
+n, k = IN()
+s = STR_IN()
+lan = rle(s)
+
+zero_area = 0
+left = 0
+ans = 0
+cnt = 0
+for i in range(len(lan)):
+    cnt += lan[i][1]
+    if lan[i][0]=="0":
+        zero_area+=1
+    
+    while k < zero_area:
+        cnt -= lan[left][1]
+        if lan[left][0]=="0":
+            zero_area-=1
+        left+=1
+    ans = max(ans, cnt)
+
+print(ans)
