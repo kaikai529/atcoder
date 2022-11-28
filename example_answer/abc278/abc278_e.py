@@ -90,24 +90,71 @@ def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
 
-# main
+# main 二次元累積和
+# (https://masayuki14.hatenablog.com/entry/2020/12/11/2%E6%AC%A1%E5%85%83%E7%B4%AF%E7%A9%8D%E5%92%8C%E3%82%92%E3%81%BE%E3%81%AA%E3%81%B6)
+### 動的計画法の高速化 ###
+## k<= l<= n の時は dp[k][l][n]と置く ##
+""" main """
 H, W, n, h, w = IN()
 a = INs(H, list)
+## 今回は各種類で累積させる
+cum2 = [[[0]*n for _ in range(W+1)] for _ in range(H+1)]
+for x in range(n):
+    for _h in range(H):
+        for _w in range(W):
+            cum2[_h+1][_w+1][x] = cum2[_h+1][_w][x]+cum2[_h][_w+1][x]-cum2[_h][_w][x]
+            if a[_h][_w]==x+1:
+                cum2[_h+1][_w+1][x]+=1
 
-cnt_all = Counter()
-for _h in range(H):
-    cnt_all += Counter(a[_h])
+# print("\n--- cum2 ---")
+# for _h in range(H+1): print(*cum2[0][_h])
 
+## 範囲h,wに存在する個数を求める
+ans = [[] for _ in range((H-h+1))]
 for _h in range(H-h+1):
     for _w in range(W-w+1):
-        mask = []
-        for dh, dw in product(range(h),range(w)):
-            mask.append(a[_h+dh][_w+dw])
+        cnt = 0
+        for x in range(n):
+            cnt+=min(1, cum2[H][W][x]-cum2[_h+h][_w+w][x]+cum2[_h+h][_w][x]+cum2[_h][_w+w][x]-cum2[_h][_w][x])
+        ans[_h].append(cnt)
 
-        ans = 0
-        cnt = cnt_all-Counter(mask)
-        for key in cnt.keys():
-            if cnt[key]!=0: ans+=1
-        print(ans, end=" ")
-    print()
+for i in ans: print(*i)
+
+""" 誤答（間に合わない） """
+# cnt_all = Counter()
+# for _h in range(H):
+#     cnt_all += Counter(a[_h])
+
+# for _h in range(H-h+1):
+#     for _w in range(W-w+1):
+#         mask = []
+#         for dh, dw in product(range(h),range(w)):
+#             mask.append(a[_h+dh][_w+dw])
+
+#         ans = 0
+#         cnt = cnt_all-Counter(mask)
+#         for key in cnt.keys():
+#             if cnt[key]!=0: ans+=1
+#         print(ans, end=" ")
+#     print()
+
+""" 二次元累積和（サンプル）"""
+# h, w = 4, 5
+# a = [
+#   [1, 1, 1, 1, 1],
+#   [1, 1, 1, 1, 1],
+#   [1, 1, 1, 1, 1],
+#   [1, 1, 1, 1, 1]
+# ]
+
+# cum2 = [[0]*(w+1) for _ in range(h+1)]
+# for _h in range(h): print(*cum2[_h])
+# print("--------------")
+
+# for _h in range(h):
+#     for _w in range(w):
+#         cum2[_h+1][_w+1] = a[_h][_w] + cum2[_h+1][_w] + cum2[_h][_w+1] - cum2[_h][_w]
+
+# for _h in range(h+1): print(*cum2[_h])
+
 
