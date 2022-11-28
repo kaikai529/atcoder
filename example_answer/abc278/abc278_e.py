@@ -94,6 +94,20 @@ def STR_INs(len_n: int):
 H, W, n, h, w = IN()
 a = INs(H, list)
 
-cnt_all = defaultdict(int)
-for _h, _w in product(range(H), range(W)):
-    
+cnt_all = Counter()
+for _h in range(H):
+    cnt_all += Counter(a[_h])
+
+for _h in range(H-h+1):
+    for _w in range(W-w+1):
+        mask = []
+        for dh, dw in product(range(h),range(w)):
+            mask.append(a[_h+dh][_w+dw])
+
+        ans = 0
+        cnt = cnt_all-Counter(mask)
+        for key in cnt.keys():
+            if cnt[key]!=0: ans+=1
+        print(ans, end=" ")
+    print()
+
