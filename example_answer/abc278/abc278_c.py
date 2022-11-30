@@ -91,4 +91,16 @@ def STR_INs(len_n: int):
 
 
 # main
+n, q = IN()
+
+user = defaultdict(int)
+for _ in range(q):
+    t, a, b = IN()
+    if t==1:
+        user[(a,b)]=1
+    elif t==2:
+        user[(a,b)]=0
+    else:
+        if user[(a,b)]*user[(b,a)]: print("Yes")
+        else: print("No")
 

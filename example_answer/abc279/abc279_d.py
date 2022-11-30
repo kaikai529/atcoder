@@ -91,4 +91,11 @@ def STR_INs(len_n: int):
 
 
 # main
+def func(_g):
+    if _g<=0: return inf
+    return b*(_g-1)+a/sqrt(_g)
 
+a, b = IN()
+g = ((a/2/b)**2)**(1/3)
+
+print(min(func(ceil(g)), func(floor(g))))

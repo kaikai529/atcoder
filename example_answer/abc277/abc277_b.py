@@ -91,4 +91,16 @@ def STR_INs(len_n: int):
 
 
 # main
+n = IN()
+s = STR_INs(n)
+flag=True
+for _s in s:
+    if not _s[0] in ["H", "D", "C", "S"]:
+        flag=False
+        break
+    if not _s[1] in ["A","2","3","4","5","6","7","8","9","T","J","Q","K"]:
+        flag=False
+        break
 
+if flag and len(s)==len(Counter(s)): print("Yes")
+else: print("No")

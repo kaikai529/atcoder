@@ -1,4 +1,5 @@
 from bisect import bisect_left, bisect_right
+import datetime
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
 from collections import Counter, defaultdict
@@ -91,4 +92,15 @@ def STR_INs(len_n: int):
 
 
 # main
+now = datetime.datetime.strptime(input().strip(), "%H %M")
 
+while True:
+    a = now.hour//10
+    b = now.hour%10
+    c = now.minute//10
+    d = now.minute%10
+
+    if 0<=10*a+c<=23 and 0<=10*b+d<=59:
+        print(now.hour, now.minute)
+        break
+    now+=datetime.timedelta(minutes=1)

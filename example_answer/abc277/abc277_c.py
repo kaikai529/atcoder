@@ -91,4 +91,25 @@ def STR_INs(len_n: int):
 
 
 # main
+n = IN()
+ladders = INs(n, list)
 
+mp = defaultdict(list)
+for a, b in ladders:
+    mp[a].append(b)
+    mp[b].append(a)
+ans = 1
+seen = defaultdict(bool)
+q = Queue()
+q.put(mp[1])
+seen[1]=True
+while not q.empty():
+    p = q.get()
+    for _p in p:
+        if seen[_p]:
+            continue
+        ans = max(ans, _p)
+        seen[_p]=True
+        q.put(mp[_p])
+
+print(ans)

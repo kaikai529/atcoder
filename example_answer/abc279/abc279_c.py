@@ -91,4 +91,26 @@ def STR_INs(len_n: int):
 
 
 # main
+h, w = IN()
+s = STR_INs(h)
+t = STR_INs(h)
 
+rev_s = []
+for _w in range(w):
+    temp = []
+    for _h in range(h):
+        temp.append(s[_h][_w])
+    rev_s.append("".join(temp))
+
+rev_t = []
+for _w in range(w):
+    temp = []
+    for _h in range(h):
+        temp.append(t[_h][_w])
+    rev_t.append("".join(temp))
+
+sort_s = sorted(rev_s)
+sort_t = sorted(rev_t)
+
+if sort_s==sort_t: print("Yes")
+else: print("No")

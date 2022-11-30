@@ -91,4 +91,11 @@ def STR_INs(len_n: int):
 
 
 # main
+s = STR_IN()
 
+ans = 0
+for _s in s:
+    if _s=="w": ans+=2
+    else: ans+=1
+
+print(ans)

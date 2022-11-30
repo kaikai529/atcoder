@@ -70,10 +70,10 @@ def rle(s):
     arr.append([bef, cnt])
     return arr
 
-def IN(trans_func=lambda x: x):
+def IN(trans_func=lambda x: x, key=lambda x: x):
     input_ = input().split()
     if trans_func == list:
-        return trans_func(map(int, input_))
+        return trans_func(map(key, map(int, input_)))
     return int(*input_) if len(input_) == 1 else map(int, input_)
 
 
@@ -91,4 +91,12 @@ def STR_INs(len_n: int):
 
 
 # main
+n, m = IN()
+a = IN(list, key=lambda x:x%m)
+cnt_a = Counter(a)
+cnt_a = sorted(cnt_a.items(), key=lambda x:x[0])
+ans = defaultdict(int)
+
+print(cnt_a)
+
 

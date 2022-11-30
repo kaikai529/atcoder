@@ -91,4 +91,8 @@ def STR_INs(len_n: int):
 
 
 # main
+n, k = IN()
+a = IN(list)
 
+for s in list([*a[k:],*[0]*min(k, n)]):
+    print(s, end=" ")

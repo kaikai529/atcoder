@@ -91,4 +91,22 @@ def STR_INs(len_n: int):
 
 
 # main
+n = IN()
+a = IN(list)
+q = IN()
+
+sub = defaultdict(int)
+base = -1
+for _ in range(q):
+    query = IN(list)
+    if query[0]==1:
+        base = query[1]
+        sub = defaultdict(int)
+    elif query[0]==2:
+        sub[query[1]-1]+=query[2]
+    else:
+        if base==-1:
+            print(a[query[1]-1]+sub[query[1]-1])
+        else:
+            print(base+sub[query[1]-1])
 

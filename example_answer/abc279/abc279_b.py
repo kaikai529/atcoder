@@ -91,4 +91,12 @@ def STR_INs(len_n: int):
 
 
 # main
+s = STR_IN()
+t = STR_IN()
 
+for i in range(len(s)-len(t)+1):
+    if s[i:i+len(t)]==t:
+        print("Yes")
+        exit()
+
+print("No")

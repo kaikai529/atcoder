@@ -91,4 +91,10 @@ def STR_INs(len_n: int):
 
 
 # main
+n, x = IN()
+p = IN(list)
 
+for i, _p in enumerate(p):
+    if _p==x:
+        print(i+1)
+        exit()
