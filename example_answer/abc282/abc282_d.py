@@ -91,15 +91,83 @@ def STR_INs(len_n: int):
 
 
 # main
-n, m, k = IN()
-
-graph = [[]*n]
+n, m = IN()
+graph = [[] for _ in range(n)]
 for _ in range(m):
-    a, b, switch = IN()
-    graph[a-1].append((b-1, switch))
-    graph[b-1].append((a-1, switch))
+    u, v = IN()
+    graph[u-1].append(v-1)
+    graph[v-1].append(u-1)
 
-s_edge = IN(list)
+WHITE = 0
+BLACK = 1
+EMPTY = -1
+color_graph = [EMPTY]*n
 
+ans = n*(n-1)//2-m
+for i in range(n):
+    if color_graph[i]!=EMPTY: continue
+    BLACK_NUM = 0
+    WHITE_NUM = 1
+    color_graph[i] = WHITE
+    q = Queue()
+    q.put((graph[i], WHITE))
+    while not q.empty():
+        ps, this_color = q.get()
+        this_color = WHITE if this_color==BLACK else BLACK
+        for p in ps:
+            if color_graph[p]==EMPTY:
+                if this_color==BLACK: BLACK_NUM+=1
+                else: WHITE_NUM+=1
+                color_graph[p] = this_color
+                q.put((graph[p], this_color))
+            elif color_graph[p]!=this_color:
+                print(0)
+                exit()
+    ans -= (BLACK_NUM*(BLACK_NUM-1)//2 + WHITE_NUM*(WHITE_NUM-1)//2)
+print(ans)
 
+"""
+## 二部グラフの判定(二色で塗分けることができる無向グラフ)
+## 連結グラフが与えられたと仮定する
 
+n, m = IN()
+graph = [[] for _ in range(n)]
+
+## 隣接行列を求める
+for _ in range(m):
+    u, v = IN()
+    graph[u-1].append(v-1)
+    graph[v-1].append(u-1)
+
+WHITE = 0
+BLACK = 1
+EMPTY = -1
+color_graph = [EMPTY]*n
+
+## 最初の頂点0を白とする
+color_graph[0] = WHITE
+q = Queue()
+q.put((graph[0], WHITE))
+
+## 二部グラフの判定
+while not q.empty():
+    ## 現在の頂点から連結している頂点(ps)と色(this_color)を取得
+    ps, this_color = q.get()
+    ## 色の反転
+    this_color = WHITE if this_color==BLACK else BLACK
+    
+    ## 連結している頂点の色を確認
+    for p in ps:
+        ## 色がなければ、現在とは逆色を代入
+        if color_graph[p]==EMPTY:
+            color_graph[p] = this_color
+            q.put((graph[p], this_color))
+        
+        ## 現在の色と同じ色の場合、二部グラフではない
+        elif color_graph[p]!=this_color:
+            print("二部グラフではない")
+            exit()
+
+print("二部グラフである")
+
+"""

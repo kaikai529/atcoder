@@ -95,8 +95,23 @@ n, m = IN()
 a = IN(list, key=lambda x:x%m)
 cnt_a = Counter(a)
 cnt_a = sorted(cnt_a.items(), key=lambda x:x[0])
-ans = defaultdict(int)
 
-print(cnt_a)
+idx = 0
+tmp = 0
+ans = []
+for key, val in cnt_a:
+    if key==idx:
+        idx+=1
+        tmp+=val*key
+    else:
+        idx=key+1
+        ans.append(tmp)
+        tmp=val*key
 
+if cnt_a[0][0]==0 and cnt_a[-1][0]==m-1 and len(ans)>0:
+    ans[0]+=tmp
+else:
+    ans.append(tmp)
+
+print(sum(a)-max(ans))
 

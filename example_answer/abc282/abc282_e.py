@@ -91,15 +91,4 @@ def STR_INs(len_n: int):
 
 
 # main
-n, m, k = IN()
-
-graph = [[]*n]
-for _ in range(m):
-    a, b, switch = IN()
-    graph[a-1].append((b-1, switch))
-    graph[b-1].append((a-1, switch))
-
-s_edge = IN(list)
-
-
 

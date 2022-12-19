@@ -91,15 +91,18 @@ def STR_INs(len_n: int):
 
 
 # main
-n, m, k = IN()
+n = IN()
+s = STR_IN()
 
-graph = [[]*n]
-for _ in range(m):
-    a, b, switch = IN()
-    graph[a-1].append((b-1, switch))
-    graph[b-1].append((a-1, switch))
+flag = True
+ans = ""
+for _s in s:
+    if flag and _s==",":
+        ans = "".join([ans,"."])
+        continue
+    if _s=="\"":
+        flag = not flag
+    ans = "".join([ans, _s])
 
-s_edge = IN(list)
-
-
-
+print(ans)
+    
