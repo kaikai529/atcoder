@@ -115,3 +115,4 @@ else:
 
 print(sum(a)-max(ans))
 
+
