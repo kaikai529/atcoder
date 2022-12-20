@@ -91,14 +91,11 @@ def STR_INs(len_n: int):
 
 
 # main
-n, m, k = IN()
+s = STR_IN()
 
-graph = [[]*n]
-for _ in range(m):
-    a, b, switch = IN()
-    graph[a-1].append((b-1, switch))
-    graph[b-1].append((a-1, switch))
+for i, _s in enumerate(s[::-1]):
+    if _s=="a": 
+        print(len(s)-i)
+        exit()
 
-s_edge = IN(list)
-
-
+print(-1)

@@ -91,14 +91,25 @@ def STR_INs(len_n: int):
 
 
 # main
-n, m, k = IN()
+n = IN()
+p = IN(list)
 
-graph = [[]*n]
-for _ in range(m):
-    a, b, switch = IN()
-    graph[a-1].append((b-1, switch))
-    graph[b-1].append((a-1, switch))
-
-s_edge = IN(list)
-
-
+ans = []
+for i in range(1,n+1):
+    if p[n-i:]==sorted(p[n-i:]):
+        continue
+    
+    tmp = 0
+    for _p in p[n-i+1:]:
+        if tmp< _p < p[n-i]:
+            tmp = _p
+    li = [p[n-i]]
+    for _p in p[n-i+1:]:
+        if _p!=tmp:
+            li.append(_p)
+    
+    ans.extend([*p[:n-i],tmp])
+    ans.extend(sorted(li, reverse=True))
+    break
+    
+print(*ans)

@@ -91,14 +91,14 @@ def STR_INs(len_n: int):
 
 
 # main
-n, m, k = IN()
+n, m = IN()
 
-graph = [[]*n]
+edge = [[] for _ in range(n+1)]
 for _ in range(m):
-    a, b, switch = IN()
-    graph[a-1].append((b-1, switch))
-    graph[b-1].append((a-1, switch))
+    a, b = IN()
+    edge[a].append(b)
+    edge[b].append(a)
 
-s_edge = IN(list)
-
-
+for i in range(1,n+1):
+    edge[i].sort()
+    print(len(edge[i]), *edge[i])

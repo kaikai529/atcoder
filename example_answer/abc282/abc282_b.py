@@ -91,14 +91,20 @@ def STR_INs(len_n: int):
 
 
 # main
-n, m, k = IN()
+n, m = IN()
+s = STR_INs(n)
 
-graph = [[]*n]
-for _ in range(m):
-    a, b, switch = IN()
-    graph[a-1].append((b-1, switch))
-    graph[b-1].append((a-1, switch))
+ans = 0
+for pair1 in range(n):
+    for pair2 in range(pair1+1,n):
+        flag = True
+        for j in range(m):
+            if s[pair1][j]=="o" or s[pair2][j]=="o":
+                continue
+            else:
+                flag=False
+                break
+        if flag:
+            ans+=1
 
-s_edge = IN(list)
-
-
+print(ans)

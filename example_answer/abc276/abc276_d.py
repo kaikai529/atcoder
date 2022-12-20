@@ -91,14 +91,30 @@ def STR_INs(len_n: int):
 
 
 # main
-n, m, k = IN()
+n = IN()
+a = IN(list)
 
-graph = [[]*n]
-for _ in range(m):
-    a, b, switch = IN()
-    graph[a-1].append((b-1, switch))
-    graph[b-1].append((a-1, switch))
+base = 0
+for _a in a:
+    base = gcd(base, _a)
 
-s_edge = IN(list)
-
-
+ans = 0
+for _a in a:
+    if _a==base:
+        continue
+    rest = _a//base
+    
+    # 2で割る 
+    while rest%2==0:
+        rest//=2
+        ans+=1
+    # 3で割る
+    while rest%3==0:
+        rest//=3
+        ans+=1
+        
+    if rest!=1:
+        print(-1)
+        exit()
+            
+print(ans)
