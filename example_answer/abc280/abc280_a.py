@@ -93,4 +93,11 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+h, w = IN()
+s = STR_INs(h)
 
+ans = 0
+for _h, _w in double_range(h, w):
+    if s[_h][_w]=="#": ans+=1
+
+print(ans)

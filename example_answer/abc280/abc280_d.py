@@ -36,12 +36,12 @@ def prime_numbers(max_n):
 
 def divisor(n: int):
     # 約数を返す
-    ans = []
+    ans = set()
     for i in range(1, ceil(sqrt(n))+1):
         if n % i == 0:
-            ans.append(i)
-            ans.append(n//i)
-    return ans
+            ans.add(i)
+            ans.add(n//i)
+    return list(ans)
 
 def cum(array: list, key=lambda x: x):
     # 累積和
@@ -89,8 +89,13 @@ def INs(len_n: int, trans_func=lambda x: x):
 def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
-def double_range(h, w):
-    return product(range(h), range(w))
 
 # main
+k = IN()
+ans = 1
+for div in sorted(divisor(k)):
+    ans *= div
+    if ans%k==0:
+        print(div)
+        exit()
 
