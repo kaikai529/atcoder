@@ -1,7 +1,9 @@
 from bisect import bisect_left, bisect_right
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
-from collections import Counter, defaultdict, deque
+from collections import Counter, defaultdict
+from os import defpath
+from queue import LifoQueue, Queue
 import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
@@ -87,8 +89,39 @@ def INs(len_n: int, trans_func=lambda x: x):
 def STR_INs(len_n: int):
     return [input().strip() for _ in range(len_n)]
 
-def double_range(h, w):
-    return product(range(h), range(w))
 
 # main
+n, m = IN()
+edges = INs(m)
 
+# 隣接行列
+graph = [[] for _ in range(n)]
+for a, b in edges:
+    graph[a-1].append(b-1)
+    graph[b-1].append(a-1)
+    
+seen = [False]*n
+cnt = 0
+for start_point in range(n):
+    if seen[start_point]:
+        continue
+    
+    cnt += 1
+    seen[start_point] = True 
+    
+    que = Queue()
+    que.put(start_point)
+    while not que.empty():
+        parent = que.get()
+        children = graph[parent]
+        for next_point in children:
+            if parent==next_point:
+                continue
+            
+            if seen[next_point]:
+                continue
+                
+            seen[next_point]=True
+            que.put(next_point)
+
+print(m-n+cnt)

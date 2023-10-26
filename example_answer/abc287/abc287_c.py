@@ -1,7 +1,9 @@
 from bisect import bisect_left, bisect_right
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
-from collections import Counter, defaultdict, deque
+from collections import Counter, defaultdict
+from os import defpath
+from queue import LifoQueue, Queue
 import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
@@ -91,4 +93,13 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m = IN()
+graph = [[] for _ in range(n)]
+
+# 隣接行列
+for _ in range(m):
+    a, b = IN()
+    graph[a-1] = b-1
+    graph[b-1] = a-1
+
 

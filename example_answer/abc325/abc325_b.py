@@ -1,7 +1,9 @@
 from bisect import bisect_left, bisect_right
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
-from collections import Counter, defaultdict, deque
+from collections import Counter, defaultdict
+from os import defpath
+from queue import LifoQueue, Queue
 import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
@@ -91,4 +93,17 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+## input
+n = IN()
+wx = INs(n)
 
+## Number of attendees
+attendees = [0 for _ in range(24)]
+
+## add attendees during working hours
+working_hours = 9
+for w, x in wx:
+    for i in range(working_hours):
+        attendees[(x+i)%24]+= w
+        
+print(max(attendees))

@@ -1,7 +1,9 @@
 from bisect import bisect_left, bisect_right
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
-from collections import Counter, defaultdict, deque
+from collections import Counter, defaultdict
+from os import defpath
+from queue import LifoQueue, Queue
 import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
@@ -81,7 +83,7 @@ def STR_IN(trans_func=lambda x: x):
 
 
 def INs(len_n: int, trans_func=lambda x: x):
-    return trans_func([IN(trans_func) for _ in range(len_n)])
+    return [IN(trans_func) for _ in range(len_n)]
 
 
 def STR_INs(len_n: int):
@@ -91,4 +93,30 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m =IN()
 
+s = []
+for _ in range(n):
+    s.append(int(STR_IN()[-3:]))
+
+t = []
+for _ in range(m):
+    t.append(int(STR_IN()[-3:]))
+
+ans = 0
+s.sort(), t.sort()
+for _s in s:
+    # 二分探索で探す
+    left, right = 0, m-1
+    while left<=right:
+        middle = (left+right)//2
+        if _s==t[left] or _s==t[right] or _s == t[middle]:
+            ans+=1
+            break
+        
+        if _s < t[middle]:
+            right=middle-1
+        else:
+            left=middle+1
+
+print(ans)
