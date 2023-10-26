@@ -1,14 +1,15 @@
 from bisect import bisect_left, bisect_right
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
-from collections import Counter, defaultdict, deque
+from collections import Counter, defaultdict
+from os import defpath
 import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 VEC4 = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-VEC9 = product([-1, 0, 1], [-1, 0, 1])
+VEC9 = list(product([-1, 0, 1], [-1, 0, 1]))
 
 # 自作関数
 def lcm(a, b):
@@ -91,4 +92,26 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+## input
+h, w = IN()
+s = STR_INs(h)
+seen = [[True]*w for _ in range(h)]
+        
+ans = 0
+for _h in range(h):
+    for _w in range(w):
+        if s[_h][_w]=="#" and seen[_h][_w]:
+            ans += 1
+            seen[_h][_w] = False
+            stack = []
+            stack.append((_h, _w))
+            while stack:
+                i, j = stack.pop()
+                for dy, dx in VEC9:
+                    if (i+dy>=0 and i+dy<h) and (j+dx>=0 and j+dx<w):
+                        if s[i+dy][j+dx]=="#" and seen[i+dy][j+dx]:
+                            seen[i+dy][j+dx]=False
+                            stack.append((i+dy, j+dx))
+                            
 
+print(ans)
