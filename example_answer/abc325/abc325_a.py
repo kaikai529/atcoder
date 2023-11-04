@@ -94,3 +94,4 @@ def double_range(h, w):
 # main
 s, t = input().split()
 print(s+" san")
+
