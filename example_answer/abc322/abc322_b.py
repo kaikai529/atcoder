@@ -2,7 +2,6 @@ from bisect import bisect_left, bisect_right
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
 from collections import Counter, defaultdict, deque
-from os import defpath
 import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
@@ -92,6 +91,18 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-s, t = input().split()
-print(s+" san")
+n, m = IN()
+S = STR_IN()
+T = STR_IN()
 
+is_prefix = True if S==T[:n] else False
+is_suffix = True if S==T[-n:] else False
+
+if is_prefix and is_suffix:
+    print(0)
+elif is_prefix and (not is_suffix):
+    print(1)
+elif (not is_prefix) and is_suffix:
+    print(2)
+else:
+    print(3)
