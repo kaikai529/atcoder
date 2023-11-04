@@ -2,7 +2,6 @@ from bisect import bisect_left, bisect_right
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
 from collections import Counter, defaultdict, deque
-from os import defpath
 import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
@@ -92,5 +91,18 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-s, t = input().split()
-print(s+" san")
+n = IN()
+S = STR_INs(n)
+
+# (player_id, wins) x n
+player_wins= [[i+1, 0] for i in range(n)]
+
+for player_num , _s in enumerate(S):    
+    for i in range(n):
+        if _s[i]=="o":
+            player_wins[player_num][1]+=1
+
+
+player_wins.sort(key= lambda x:x[1], reverse=True)
+ans = list(map(lambda x:x[0], player_wins))
+print(*ans)

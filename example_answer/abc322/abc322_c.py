@@ -2,7 +2,6 @@ from bisect import bisect_left, bisect_right
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
 from collections import Counter, defaultdict, deque
-from os import defpath
 import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
@@ -92,5 +91,13 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-s, t = input().split()
-print(s+" san")
+n, m = IN()
+A = IN(list)
+
+cnt = 0
+for day in range(n):
+    if A[cnt]==day+1:
+        cnt+=1
+        print(0)
+    else:
+        print(A[cnt]-day-1)

@@ -2,7 +2,6 @@ from bisect import bisect_left, bisect_right
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
 from collections import Counter, defaultdict, deque
-from os import defpath
 import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
@@ -92,5 +91,24 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-s, t = input().split()
-print(s+" san")
+def is_326like_number(a, b, c):    
+    if a*b==c: return True
+    return False
+
+## input
+a, b, c = map(int, STR_IN())
+
+while not is_326like_number(a, b, c):
+    if a*b<10 and a*b>c:
+        c=a*b
+        break
+    elif b<10:
+        b+=1
+        c=0
+    else:
+        a+=1
+        b=0
+        c=a*b
+        break 
+
+print(a,b,c, sep="")
