@@ -8,7 +8,7 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 VEC4 = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-VEC9 = list(product([-1, 0, 1], [-1, 0, 1]))
+VEC9 = product([-1, 0, 1], [-1, 0, 1])
 
 # 自作関数
 def lcm(a, b):

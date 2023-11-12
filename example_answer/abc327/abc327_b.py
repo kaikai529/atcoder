@@ -8,7 +8,7 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 VEC4 = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-VEC9 = list(product([-1, 0, 1], [-1, 0, 1]))
+VEC9 = product([-1, 0, 1], [-1, 0, 1])
 
 # 自作関数
 def lcm(a, b):
@@ -91,4 +91,12 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+b = IN()
+for i in range(1,20):
+    if b==i**i:
+        print(i)
+        exit()
+    elif b<i**i:
+        break
 
+print(-1)

@@ -8,7 +8,7 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 VEC4 = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-VEC9 = list(product([-1, 0, 1], [-1, 0, 1]))
+VEC9 = product([-1, 0, 1], [-1, 0, 1])
 
 # 自作関数
 def lcm(a, b):
@@ -91,4 +91,31 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m = IN()
+A = IN(list)
+B = IN(list)
 
+tree = defaultdict(list)
+for _a, _b in zip(A, B):
+    tree[_a-1].append(_b-1)
+    tree[_b-1].append(_a-1)
+
+seen = [0]*n
+for i in range(n):
+    if seen[i]!=0:
+        continue
+    
+    seen[i]=1
+    stack = [(tree[i],1)]
+    while len(stack):
+        points, turn = stack.pop()
+        for _p in points:
+            if seen[_p]==turn:
+                print("No")
+                exit()
+            elif seen[_p]==0:
+                seen[_p]=-turn
+                stack.append((tree[_p], -turn))
+
+print("Yes")
+        
