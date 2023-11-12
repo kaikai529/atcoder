@@ -91,46 +91,18 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-n, T = STR_IN()
-S = STR_INs(int(n))
+S = IN(list)
 
-T_len = len(T)
-ans = []
-for index, _S in enumerate(S):
-    lengh = len(_S)
-    cnt = 0
-    # case1 or case4
-    if lengh==T_len:
-        for i in range(T_len):
-            if T[i]!=_S[i]:
-                cnt+=1
-                if cnt==2: break
-    # case2
-    elif lengh==T_len-1:
-        for i in range(T_len):
-            if cnt==0 and i==T_len-1:
-                break
-            if cnt==0 and T[i]!=_S[i]:
-                cnt+=1
-            elif cnt==1 and T[i]!=_S[i-1]:
-                cnt+=1
-                break
-            
-    # case3
-    elif lengh==T_len+1:
-        for i in range(T_len+1):
-            if cnt==0 and i==T_len:
-                break
-            if cnt==0 and T[i]!=_S[i]:
-                cnt+=1
-            elif cnt==1 and T[i-1]!=_S[i]:
-                cnt+=1
-                break
-            
-    else: continue
-    if cnt==0 or cnt==1:
-        ans.append(index+1)
-    
+# case1
+for i in range(7):
+    if not S[i]<=S[i+1]:
+        print("No")
+        exit()
+        
+# case2,3
+for i in range(8):
+    if not (100<=S[i]<=675 and S[i]%25==0): 
+        print("No")
+        exit()
 
-print(len(ans))
-print(*ans)
+print("Yes")

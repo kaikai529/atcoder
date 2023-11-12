@@ -91,4 +91,18 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, d, p = IN()
+F = IN(list)
+F.sort(reverse=True)
+
+day_cnt = 0
+ticket = 0
+while day_cnt<n:
+    if sum(F[day_cnt:day_cnt+d])-p>0:
+        ticket+=1
+        day_cnt+=d
+    else:
+        break
+    
+print(ticket*p+sum(F[day_cnt:]))
 

@@ -84,53 +84,38 @@ def INs(len_n: int, trans_func=lambda x: x):
     return trans_func([IN(trans_func) for _ in range(len_n)])
 
 
-def STR_INs(len_n: int):
-    return [input().strip() for _ in range(len_n)]
+def STR_INs(len_n: int, trans_func=lambda x:x):
+    return [STR_IN(trans_func) for _ in range(len_n)]
 
 def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-n, T = STR_IN()
-S = STR_INs(int(n))
+n, m = IN()
+S = STR_INs(n, list)
 
-T_len = len(T)
+tmp = ["###.?????", "###.?????", "###.?????",
+        "....?????", "?????????", "?????....",
+        "?????.###", "?????.###", "?????.###"]
+
 ans = []
-for index, _S in enumerate(S):
-    lengh = len(_S)
-    cnt = 0
-    # case1 or case4
-    if lengh==T_len:
-        for i in range(T_len):
-            if T[i]!=_S[i]:
-                cnt+=1
-                if cnt==2: break
-    # case2
-    elif lengh==T_len-1:
-        for i in range(T_len):
-            if cnt==0 and i==T_len-1:
-                break
-            if cnt==0 and T[i]!=_S[i]:
-                cnt+=1
-            elif cnt==1 and T[i]!=_S[i-1]:
-                cnt+=1
-                break
-            
-    # case3
-    elif lengh==T_len+1:
-        for i in range(T_len+1):
-            if cnt==0 and i==T_len:
-                break
-            if cnt==0 and T[i]!=_S[i]:
-                cnt+=1
-            elif cnt==1 and T[i-1]!=_S[i]:
-                cnt+=1
-                break
-            
-    else: continue
-    if cnt==0 or cnt==1:
-        ans.append(index+1)
+for y, x in product(range(n), range(m)):
+    flag = True
+    for dx, dy in product(range(9),range(9)):
+        if not (y+dy<n and x+dx<m):
+            flag = False
+            break
+        
+        if not (S[y+dy][x+dx]==tmp[dy][dx] or tmp[dy][dx]=="?"):
+            flag = False
+            break
+    if flag: ans.append([y+1,x+1])
     
+for i, j in ans:
+    print(i,j)
+            
+    
+    
+        
 
-print(len(ans))
-print(*ans)
+

@@ -1,4 +1,5 @@
 from bisect import bisect_left, bisect_right
+from functools import cmp_to_key
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
 from collections import Counter, defaultdict, deque
@@ -91,46 +92,20 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-n, T = STR_IN()
-S = STR_INs(int(n))
-
-T_len = len(T)
-ans = []
-for index, _S in enumerate(S):
-    lengh = len(_S)
-    cnt = 0
-    # case1 or case4
-    if lengh==T_len:
-        for i in range(T_len):
-            if T[i]!=_S[i]:
-                cnt+=1
-                if cnt==2: break
-    # case2
-    elif lengh==T_len-1:
-        for i in range(T_len):
-            if cnt==0 and i==T_len-1:
-                break
-            if cnt==0 and T[i]!=_S[i]:
-                cnt+=1
-            elif cnt==1 and T[i]!=_S[i-1]:
-                cnt+=1
-                break
-            
-    # case3
-    elif lengh==T_len+1:
-        for i in range(T_len+1):
-            if cnt==0 and i==T_len:
-                break
-            if cnt==0 and T[i]!=_S[i]:
-                cnt+=1
-            elif cnt==1 and T[i-1]!=_S[i]:
-                cnt+=1
-                break
-            
-    else: continue
-    if cnt==0 or cnt==1:
-        ans.append(index+1)
+def cmp(x, y):
+    _, a_x, b_x = x
+    _, a_y, b_y = y
+    s = a_x*b_y - b_x*a_y
+    if s==0: return 0
+    elif s>0: return 1
+    else: return -1
     
+n = IN()
+ab = INs(n, list)
 
-print(len(ans))
-print(*ans)
+ans = [[i+1, _a, (_a+_b)] for i, (_a, _b) in enumerate(ab)]
+ans.sort(key=cmp_to_key(cmp), reverse=True)
+
+for _ans in ans:
+    print(_ans[0], end=" ")
+            
