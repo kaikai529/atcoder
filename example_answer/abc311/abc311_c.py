@@ -8,7 +8,7 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 VEC4 = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-VEC9 = product([-1, 0, 1], [-1, 0, 1])
+VEC9 = list(product([-1, 0, 1], [-1, 0, 1]))
 
 # 自作関数
 def lcm(a, b):
@@ -91,32 +91,24 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-n, m = IN()
-ABC = INs(m, list)
+n = IN()
+A = IN(list)
+A = [[i, _a-1] for i, _a in enumerate(A)]
 
-tree = [[] for _ in range(n)]
-for _a, _b, _c in ABC:
-    tree[_a-1].append([_b-1, _c])
-    tree[_b-1].append([_a-1, _c])
-
-
-ans = 0
-# 任意のスタート地点を選ぶ
-for start in range(n):
-    seen = [False]*n
-    seen[start] = True
-    # [次に探索できる頂点, 現在の距離, 通過判定]
-    stack = [[tree[start], 0, seen]]
-    while stack:
-        points, dist, seen = stack.pop()
-        # 距離の最大を記録
-        ans = max(ans, dist)
-        
-        # 次に探索できる頂点を探索
-        for _p, _c in points:
-            if seen[_p]: continue
-            s = seen.copy()
-            s[_p] = True
-            stack.append([tree[_p], dist+_c, s])
-
-print(ans)
+seen = [False]*n
+base, front = A[0]
+seen[base] = True
+ans = [base+1]
+while True:
+    this, front = A[front]
+    if seen[this]:
+        start = ans.index(this+1)
+        print(len(ans[start:]))
+        print(*ans[start:])
+        exit()
+    
+    ans.append(this+1)
+    if seen[this]: break
+    seen[this]=True
+    
+    

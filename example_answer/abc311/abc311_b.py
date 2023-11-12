@@ -8,7 +8,7 @@ input = sys.stdin.readline
 # 定数
 MOD = 10**9+7
 VEC4 = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-VEC9 = product([-1, 0, 1], [-1, 0, 1])
+VEC9 = list(product([-1, 0, 1], [-1, 0, 1]))
 
 # 自作関数
 def lcm(a, b):
@@ -58,12 +58,12 @@ def rle(s):
     bef = s[0]
     cnt = 1
     arr = []
-    for i in range(1, len(s)):
-        if s[i] == bef:
+    for _s in s[1:]:
+        if _s == bef:
             cnt += 1
         else:
             arr.append([bef, cnt])
-            bef = s[i]
+            bef = _s
             cnt = 1
     arr.append([bef, cnt])
     return arr
@@ -91,32 +91,28 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-n, m = IN()
-ABC = INs(m, list)
+n, d = IN()
+S = STR_INs(n)
 
-tree = [[] for _ in range(n)]
-for _a, _b, _c in ABC:
-    tree[_a-1].append([_b-1, _c])
-    tree[_b-1].append([_a-1, _c])
-
+days = [1]*d
+for _S in S:
+    for i, _s in enumerate(_S):
+        days[i] *= 1 if _s=="o" else 0
 
 ans = 0
-# 任意のスタート地点を選ぶ
-for start in range(n):
-    seen = [False]*n
-    seen[start] = True
-    # [次に探索できる頂点, 現在の距離, 通過判定]
-    stack = [[tree[start], 0, seen]]
-    while stack:
-        points, dist, seen = stack.pop()
-        # 距離の最大を記録
-        ans = max(ans, dist)
-        
-        # 次に探索できる頂点を探索
-        for _p, _c in points:
-            if seen[_p]: continue
-            s = seen.copy()
-            s[_p] = True
-            stack.append([tree[_p], dist+_c, s])
+
+bef = days[0]
+cnt = 0
+for _d in days:
+    if bef==_d:
+        cnt+=1
+    else:
+        if bef==1:
+            ans=max(ans, cnt)
+        cnt = 1
+        bef = _d
+
+if bef==1:
+    ans = max(ans, cnt)
 
 print(ans)
