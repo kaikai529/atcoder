@@ -84,8 +84,8 @@ def INs(len_n: int, trans_func=lambda x: x):
     return trans_func([IN(trans_func) for _ in range(len_n)])
 
 
-def STR_INs(len_n: int):
-    return [input().strip() for _ in range(len_n)]
+def STR_INs(len_n: int, trans_func):
+    return [STR_IN(trans_func).strip() for _ in range(len_n)]
 
 def double_range(h, w):
     return product(range(h), range(w))
