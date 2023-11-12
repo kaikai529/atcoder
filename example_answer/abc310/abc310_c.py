@@ -106,4 +106,3 @@ for _s in S:
         not_palindrome.add(_s[::-1])
 
 print(len(palindrome)+len(not_palindrome)//2)
-    

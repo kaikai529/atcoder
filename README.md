@@ -219,6 +219,7 @@ Input contest name: abc120
 |abc313        |o|o|-|-| - | - | |
 |abc314        |o|o|o|-| - | - | |
 |abc315        |o|o|o|-| - | - | |
+|abc316        |o|o|-|-| - | - | |
 |abc317        |o|o|o|-| - | - |C:再起 |
 |abc318        |o|o|o|-| - | - | |
 |abc319        |o|o|-|-| - | - | |

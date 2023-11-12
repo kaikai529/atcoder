@@ -95,3 +95,4 @@ n, p, q = IN()
 D = IN(list)
 
 print(min(p, q+min(D)))
+
