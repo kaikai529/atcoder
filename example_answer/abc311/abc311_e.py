@@ -90,22 +90,5 @@ def STR_INs(len_n: int):
 def double_range(h, w):
     return product(range(h), range(w))
 
-# main まじで問題文が悪い
-n, m = IN()
-PCF = INs(n, list)
+# main
 
-items = []
-for _pcf in PCF:
-    _p, _ = _pcf[:2]
-    items.append([_p, set(_pcf[2:])])
-
-# i番目の商品
-for _p, _f in items:
-    # j番目の商品
-    for _pp, _ff in items:
-        # case1(Pi>=Pj) and case2(Ci<=Cj) and case3(Pi>Pj or _c<_cc)
-        if (_p>=_pp) and len(_f-_ff)==0 and (_p>_pp or len(_ff-_f)>=1):
-                print("Yes")
-                exit()
-
-print("No")

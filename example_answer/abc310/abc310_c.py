@@ -91,4 +91,19 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+def is_palindrome(s): return s==s[::-1]
 
+n = IN()
+S = STR_INs(n)
+
+palindrome = set()
+not_palindrome = set()
+for _s in S:
+    if is_palindrome(_s):
+        palindrome.add(_s)
+    else: 
+        not_palindrome.add(_s)
+        not_palindrome.add(_s[::-1])
+
+print(len(palindrome)+len(not_palindrome)//2)
+    

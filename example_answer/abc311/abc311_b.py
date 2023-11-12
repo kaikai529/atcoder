@@ -58,12 +58,12 @@ def rle(s):
     bef = s[0]
     cnt = 1
     arr = []
-    for i in range(1, len(s)):
-        if s[i] == bef:
+    for _s in s[1:]:
+        if _s == bef:
             cnt += 1
         else:
             arr.append([bef, cnt])
-            bef = s[i]
+            bef = _s
             cnt = 1
     arr.append([bef, cnt])
     return arr
@@ -90,22 +90,29 @@ def STR_INs(len_n: int):
 def double_range(h, w):
     return product(range(h), range(w))
 
-# main まじで問題文が悪い
-n, m = IN()
-PCF = INs(n, list)
+# main
+n, d = IN()
+S = STR_INs(n)
 
-items = []
-for _pcf in PCF:
-    _p, _ = _pcf[:2]
-    items.append([_p, set(_pcf[2:])])
+days = [1]*d
+for _S in S:
+    for i, _s in enumerate(_S):
+        days[i] *= 1 if _s=="o" else 0
 
-# i番目の商品
-for _p, _f in items:
-    # j番目の商品
-    for _pp, _ff in items:
-        # case1(Pi>=Pj) and case2(Ci<=Cj) and case3(Pi>Pj or _c<_cc)
-        if (_p>=_pp) and len(_f-_ff)==0 and (_p>_pp or len(_ff-_f)>=1):
-                print("Yes")
-                exit()
+ans = 0
 
-print("No")
+bef = days[0]
+cnt = 0
+for _d in days:
+    if bef==_d:
+        cnt+=1
+    else:
+        if bef==1:
+            ans=max(ans, cnt)
+        cnt = 1
+        bef = _d
+
+if bef==1:
+    ans = max(ans, cnt)
+
+print(ans)
