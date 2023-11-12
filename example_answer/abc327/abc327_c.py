@@ -91,4 +91,24 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+A = INs(9, list)
 
+# 行
+for y in range(9):
+    if len(set(A[y]))!=9:
+        print("No")
+        exit()
+    
+# 列    
+for x in range(9):
+    if len(set([ _a[x] for _a in A]))!=9:
+        print("No")
+        exit()
+        
+for y, x in product((1,4,7), (1,4,7)):
+    if len(set([A[y+dy][x+dx] for dy, dx in VEC9]))!=9:
+        print("No")
+        exit()
+
+print("Yes")
+        

@@ -91,4 +91,10 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+a, b = IN()
+
+if a%3!=0 and b-a==1:
+    print("Yes")
+else:
+    print("No")
 

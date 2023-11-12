@@ -94,3 +94,32 @@ def double_range(h, w):
 n, m = IN()
 A = IN(list)
 S = STR_INs(n)
+
+# calc this socre
+score = list(range(1,n+1))
+for player_num, _S in enumerate(S):
+    for i, _s in enumerate(_S):
+        if _s=="o":
+            score[player_num]+=(A[i])
+
+ans = [0]*n
+# max score without self-score
+max_score = max(score)    
+for player_num, _S in enumerate(S):
+    # pick up unresolved_pro score
+    unresolved = []
+    for i, _s in enumerate(_S):
+        if _s=="x":
+           unresolved.append(A[i])
+    
+    unresolved.sort(reverse=True)
+    cnt = 0
+    while score[player_num]<max_score:
+        score[player_num]+=unresolved[cnt]
+        ans[player_num]+=1
+        cnt+=1
+
+for _a in ans:
+    print(_a)
+
+    

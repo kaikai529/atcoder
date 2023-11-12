@@ -84,11 +84,29 @@ def INs(len_n: int, trans_func=lambda x: x):
     return trans_func([IN(trans_func) for _ in range(len_n)])
 
 
-def STR_INs(len_n: int):
-    return [input().strip() for _ in range(len_n)]
+def STR_INs(len_n: int, trans_func):
+    return [STR_IN(trans_func) for _ in range(len_n)]
 
 def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+A = STR_INs(n, list)
 
+vec = [(0,1),(1,0),(0,-1),(-1,0)]
+
+x, y = 0, 0
+front = A[0][0]
+for dy, dx in vec:
+    y, x = y+dy, x+dx
+    while 0<=y<n and 0<=x<n:
+        this = A[y][x]
+        A[y][x] = front
+        y, x = y+dy, x+dx
+        front = this
+    # 超えた分を元に戻す
+    y, x = y-dy, x+-dx
+
+for _a in A:
+    print(*_a, sep="")
