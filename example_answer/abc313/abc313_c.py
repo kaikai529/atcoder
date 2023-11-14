@@ -91,4 +91,35 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+A = IN(list)
+
+## 方法１: 操作後の数列が求め，Aと比較
+A.sort()
+sum_a = sum(A)
+mean = sum_a/n 
+x, y = floor(mean), ceil(mean)
+B = [*[x]*(n-sum_a%n), *[y]*(sum_a%n)]
+
+ans = 0
+for _a, _b in zip(A,B):
+    ans+=abs(_a-_b)
+
+print(ans//2)
+
+## 方法2: 
+## 平均以下はaに平均以上はbに揃え，回数は最大に合わせる． 
+"""
+mean = sum(A)/n 
+a, b = floor(mean), ceil(mean)
+plus = 0
+minus = 0
+for _a in A:
+    tmp = _a-mean
+    if tmp<0: minus+=a-_a
+    else: plus+=_a-b
+    
+print(max(minus, plus))
+"""
+
 
