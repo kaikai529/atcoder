@@ -91,4 +91,23 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m = IN()
+supplier= Counter(IN(list)).items()
+buyer = Counter(IN(list)).items()
 
+supplier = [[_p, _n, 0] for _p, _n in supplier]
+buyer = [[_p, _n, 1] for _p, _n in buyer]
+market = [*supplier, *buyer]
+market.sort(key=lambda x:x[0])
+s_num = 0
+b_num = m
+for i, (_p, _n, sb) in enumerate(market):
+    if sb==0: 
+        s_num+=_n
+    else: 
+        b_num-=_n
+        _p+=1
+    
+    if s_num>=b_num:
+        print(_p)
+        exit()
