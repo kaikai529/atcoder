@@ -84,11 +84,25 @@ def INs(len_n: int, trans_func=lambda x: x):
     return trans_func([IN(trans_func) for _ in range(len_n)])
 
 
-def STR_INs(len_n: int, trans_func):
+def STR_INs(len_n: int, trans_func=lambda x:x):
     return [STR_IN(trans_func).strip() for _ in range(len_n)]
 
 def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+h, w = IN()
+A = STR_INs(h)
+B = STR_INs(h)
 
+for base_y, base_x in product(range(h), range(w)):
+    flag = True
+    for dy, dx in product(range(h), range(w)):
+        this_y, this_x = base_y+dy, base_x+dx
+        if A[this_y%h][this_x%w]!=B[dy][dx]:
+            flag = False
+    if flag:
+        print("Yes")
+        exit()
+
+print("No")

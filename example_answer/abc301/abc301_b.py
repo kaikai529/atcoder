@@ -91,4 +91,14 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+A = IN(list)
 
+ans = []
+for i in range(n-1):
+    if A[i]-A[i+1] < 0:
+        ans.extend(list(range(A[i], A[i+1])))
+    else:
+        ans.extend(list(range(A[i], A[i+1], -1)))
+        
+print(*ans, A[-1])

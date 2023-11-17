@@ -91,4 +91,18 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m = IN()
+A = INs(m, list)
 
+flag = [[False]*n for _ in range(n)]
+for _a in A:
+    for i in range(n-1):
+        flag[_a[i]-1][_a[i+1]-1] = True
+        flag[_a[i+1]-1][_a[i]-1] = True
+
+ans = 0
+for i in range(n):
+    for j in range(i+1,n):
+        if not flag[i][j]: ans+=1
+    
+print(ans)

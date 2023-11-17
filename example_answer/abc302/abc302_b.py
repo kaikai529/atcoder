@@ -84,11 +84,30 @@ def INs(len_n: int, trans_func=lambda x: x):
     return trans_func([IN(trans_func) for _ in range(len_n)])
 
 
-def STR_INs(len_n: int, trans_func):
+def STR_INs(len_n: int, trans_func=lambda x:x):
     return [STR_IN(trans_func).strip() for _ in range(len_n)]
 
 def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+h, w = IN()
+S = STR_INs(h)
 
+for base_y, base_x in product(range(h), range(w)):
+    for dy, dx in VEC9:
+        this_y, this_x = base_y, base_x
+        A = ""
+        index = []
+        for i in range(5):
+            A += S[this_y][this_x]
+            index.append([this_y+1, this_x+1])
+            # 範囲内を超えたらbreak
+            if not (0 <= this_y+dy < h and 0<= this_x+dx < w): break
+            this_y += dy
+            this_x += dx
+        if A == "snuke":
+            for _i in index: print(*_i)
+            exit()
+            
+            
