@@ -111,4 +111,3 @@ for base_y, base_x in product(range(h), range(w)):
             exit()
             
             
-            
