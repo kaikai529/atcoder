@@ -91,10 +91,23 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-a, b = IN()
+n, k = IN()
+ab = defaultdict(int)
+tablet = 0
+for i in range(n):
+    _a, _b = IN()
+    ab[_a]+=_b
+    tablet+=_b
 
-if a%3!=0 and b-a==1:
-    print("Yes")
-else:
-    print("No")
+ab = sorted(ab.items(), key=lambda x:x[0])
+
+if tablet<=k:
+    print(1)
+    exit()
+    
+for _a, _b in ab:
+    tablet-=_b
+    if tablet<=k:
+        print(_a+1)
+        exit()
 

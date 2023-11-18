@@ -91,4 +91,15 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+A = IN(list)
 
+seen = [0]*n
+ans = []
+
+for _a in A:
+    if seen[_a-1]==1:
+        ans.append(_a)
+    seen[_a-1]+=1
+
+print(*ans)

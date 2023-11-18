@@ -80,15 +80,34 @@ def STR_IN(trans_func=lambda x: x):
     return trans_func(input_[0]) if len(input_) == 1 else input_
 
 
-def INs(len_n: int, trans_func=lambda x: x):
+def INs(len_n: int, trans_func=lambda x:x):
     return trans_func([IN(trans_func) for _ in range(len_n)])
 
 
-def STR_INs(len_n: int, trans_func):
+def STR_INs(len_n: int, trans_func=lambda x:x):
     return [STR_IN(trans_func).strip() for _ in range(len_n)]
 
 def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m = IN()
+S = STR_INs(n)
 
+for per in permutations(range(n), n):
+    flag = True
+    for i in range(n-1):
+        diff = 0
+        for _s, _ss in zip(S[per[i]],S[per[i+1]]):
+            if _s==_ss: continue
+            diff+=1
+        if diff>=2:
+            flag=False
+            break
+    if flag:
+        print("Yes")
+        exit()
+
+print("No")
+        
+    
