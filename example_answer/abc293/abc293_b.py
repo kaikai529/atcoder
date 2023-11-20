@@ -99,6 +99,7 @@ for i, _a in enumerate(A):
     if not seen[i]:
         seen[_a-1]=True
 
+print(n-sum(seen))
 for i, _s in enumerate(seen):
     if not _s: print(i+1, end=" ")
 
