@@ -91,4 +91,19 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+def is_Palindrome(S1,S2):
+  _s = S1+S2
+  return _s==_s[::-1]
+  
+n = int(input())
+S = [input() for _ in range(n)]
 
+for i in range(n):
+  for j in range(n):
+    if i==j: continue
+    if is_Palindrome(S[i],S[j]):
+      print("Yes")
+      exit()
+  
+print("No")
+    
