@@ -91,4 +91,13 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = int(input())
 
+base = 10**3
+div = 1
+for _ in range(7):
+  if n < base:
+    print(n//div*div)
+    exit()
+  base*=10
+  div*=10

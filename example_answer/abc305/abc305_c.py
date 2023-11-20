@@ -84,11 +84,26 @@ def INs(len_n: int, trans_func=lambda x: x):
     return trans_func([IN(trans_func) for _ in range(len_n)])
 
 
-def STR_INs(len_n: int, trans_func):
+def STR_INs(len_n: int, trans_func=lambda x:x):
     return [STR_IN(trans_func).strip() for _ in range(len_n)]
 
 def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+h, w = IN()
+S = STR_INs(h)
 
+rec_y = []
+for _h, _Sh in enumerate(S):
+    if "#" in _Sh: rec_y.append(_h)
+
+rec_x = []
+for _w in range(w):
+    _Sw = [_Sh[_w] for _Sh in S]
+    if "#" in _Sw: rec_x.append(_w)
+
+for _y, _x in product(rec_y, rec_x):
+    if S[_y][_x]!="#":
+        print(_y+1,_x+1)
+        exit() 

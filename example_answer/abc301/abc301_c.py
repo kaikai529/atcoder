@@ -91,4 +91,7 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+S = Counter(STR_IN(list))
+T = Counter(STR_IN(list))
+
 

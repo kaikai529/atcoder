@@ -91,4 +91,12 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+A = map(int, input().split())
 
+ans = 0
+base = 1
+for _a in A:
+  ans += base*_a
+  base*=2
+
+print(ans)

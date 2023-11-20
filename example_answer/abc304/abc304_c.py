@@ -91,4 +91,29 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, d = IN()
+XY = INs(n, list)
 
+tree = [[] for _ in range(n)]
+for i in range(n):
+    x, y = XY[i]
+    for j in range(i+1,n):
+        xx, yy = XY[j]
+        if (x-xx)**2+(y-yy)**2<=d**2:
+            tree[i].append(j)
+            tree[j].append(i)
+
+# 探索
+seen = [False]*n
+seen[0] = True
+stack = [tree[0]]
+while stack:
+    points = stack.pop()
+    for p in points:
+        if seen[p]: continue
+        seen[p]=True
+        stack.append(tree[p])
+
+for i, _s in enumerate(seen):
+    if _s: print("Yes")
+    else: print("No")

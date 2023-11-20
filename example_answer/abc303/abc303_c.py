@@ -91,4 +91,32 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m, h, k = IN()
+S = STR_IN()
+xy = set()
+for _ in range(m):
+    _x, _y = IN()
+    xy.add((_x,_y))
 
+this_x, this_y = 0, 0
+road = []
+for _s in S:
+    if _s=="R": this_x+=1
+    elif _s=="L": this_x-=1
+    elif _s=="U": this_y+=1
+    else: this_y-=1
+    h-=1
+    if h<0:
+        print("No")
+        exit()
+    if ((this_x, this_y) in xy) and h<k:
+        xy.remove((this_x, this_y))
+        h=k
+
+print("Yes")
+
+"""
+in list : 全探索
+in set  : ハッシュ値を基に検索
+そのため，setや辞書型は検索が非常に速い．    
+"""

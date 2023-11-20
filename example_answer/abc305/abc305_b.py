@@ -91,4 +91,12 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+p, q = input().split()
+
+point = [0, 3, 4, 8, 9, 14, 23]
+base = ord("A")
+
+p, q = ord(p)-base, ord(q)-base
+print(abs(point[p]-point[q]))
+
 

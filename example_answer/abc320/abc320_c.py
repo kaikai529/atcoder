@@ -91,4 +91,30 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+m = IN()
+S = STR_INs(3)
 
+ans = inf
+for base in range(10):
+    event = [[0]*m for _ in range(3)]
+    flag = [False]*3
+    for reel_index, _S in enumerate(S):
+        for i, _s in enumerate(_S):
+            if _s==str(base):
+                event[reel_index][i] = 1
+                flag[reel_index] = True
+    
+    # 絶対に揃わない場合
+    if not all(flag): continue
+    
+    for push_order in permutations(range(3),3):
+        cnt, t = 0, 0
+        while cnt<3:
+            if event[push_order[cnt]][t%m]==1:
+                cnt+=1
+            t+=1
+        ans = min(ans, t-1)
+
+if ans==inf: print(-1)
+else: print(ans)
+             

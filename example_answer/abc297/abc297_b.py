@@ -93,4 +93,16 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+S = STR_IN()
 
+b = []
+k = []
+r = []
+for i, _s in enumerate(S):
+    if _s=="B": b.append(i+1)
+    elif _s=="K": k.append(i+1)
+    elif _s=="R": r.append(i+1)
+    
+
+if (b[0]%2!=b[1]%2) and (r[0]<k[0]<r[1]): print("Yes")
+else : print("No")
