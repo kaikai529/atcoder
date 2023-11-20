@@ -91,4 +91,27 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+def rot(array):
+    rot_array = []
+    for i in range(len(array))[::-1]:
+        rot_array.append([_a[i] for _a in array])
+    return rot_array
+
+n = IN()
+A = INs(n, list)
+B = INs(n, list)
+
+for _ in range(4):
+    flag = True
+    for y, x in product(range(n), range(n)):
+        # (A=0 and B=0,1), (A=1 and B=1)
+        if A[y][x]==1 and B[y][x]==0:
+            flag = False
+            break
+    if flag:
+        print("Yes")
+        exit()
+    A = rot(A)
+
+print("No")
 

@@ -91,4 +91,21 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, t = IN()
+C = IN(list)
+R = IN(list)
 
+if t in set(C):
+    winner = 0
+    score = 0
+else:
+    winner = 1
+    t = C[0]
+    score = R[0]
+
+for i, (_c, _r) in enumerate(zip(C, R)):
+    if _c==t and _r>score:
+        winner = i+1
+        score = _r
+    
+print(winner)

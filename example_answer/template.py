@@ -1,4 +1,5 @@
 from bisect import bisect_left, bisect_right
+from copy import copy, deepcopy
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
 from collections import Counter, defaultdict, deque
@@ -84,8 +85,8 @@ def INs(len_n: int, trans_func=lambda x: x):
     return trans_func([IN(trans_func) for _ in range(len_n)])
 
 
-def STR_INs(len_n: int, trans_func=lambda x:x):
-    return [STR_IN(trans_func).strip() for _ in range(len_n)]
+def STR_INs(len_n: int, trans_func=None):
+    return [STR_IN(trans_func) for _ in range(len_n)] if trans_func else [STR_IN().strip() for _ in range(len_n)]
 
 def double_range(h, w):
     return product(range(h), range(w))

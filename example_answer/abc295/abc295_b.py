@@ -1,4 +1,5 @@
 from bisect import bisect_left, bisect_right
+from copy import copy, deepcopy
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
 from collections import Counter, defaultdict, deque
@@ -84,11 +85,26 @@ def INs(len_n: int, trans_func=lambda x: x):
     return trans_func([IN(trans_func) for _ in range(len_n)])
 
 
-def STR_INs(len_n: int, trans_func):
-    return [STR_IN(trans_func).strip() for _ in range(len_n)]
+def STR_INs(len_n: int, trans_func=None):
+    return [STR_IN(trans_func) for _ in range(len_n)] if trans_func else [STR_IN().strip() for _ in range(len_n)]
 
 def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+def manhattan(p1, p2):
+    return abs(p1[0]-p2[0])+abs(p1[1]-p2[1])
 
+r, c = IN()
+B = STR_INs(r, list)
+bombs = deepcopy(B)
+
+for base_y, base_x in product(range(r), range(c)):
+    if B[base_y][base_x] in ".#": continue
+    
+    dist = int(B[base_y][base_x])
+    for this_y, this_x in product(range(r), range(c)):
+        if manhattan([this_y, this_x], [base_y, base_x])<=dist:
+            bombs[this_y][this_x] = "."
+
+for _b in bombs: print(*_b, sep="")

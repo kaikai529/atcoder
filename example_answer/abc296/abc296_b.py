@@ -84,11 +84,20 @@ def INs(len_n: int, trans_func=lambda x: x):
     return trans_func([IN(trans_func) for _ in range(len_n)])
 
 
-def STR_INs(len_n: int, trans_func):
+def STR_INs(len_n: int, trans_func=lambda x: x):
     return [STR_IN(trans_func).strip() for _ in range(len_n)]
 
 def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+S = STR_INs(8)
+row = "abcdefgh"
+col = "87654321"
+
+for _c, _S in zip(col, S):
+    for _r ,_s in zip(row, _S):
+        if _s=="*":
+            print(_r, _c, sep="")
+            exit()
 
