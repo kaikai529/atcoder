@@ -91,4 +91,16 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m = IN()
+a = IN(list)
+array = list(range(1,n+1))
 
+# レ点のない場所=逆順が終わる
+g = sorted(set(range(1,n+1))-set(a))
+
+# レ点による逆順
+ans = array[:g[0]][::-1]
+for i in range(len(g)-1):
+    ans.extend(array[g[i]:g[i+1]][::-1])
+
+print(*ans, *array[g[-1]:])

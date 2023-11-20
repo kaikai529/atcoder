@@ -91,4 +91,17 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m = IN()
+A = IN(list)
+B = IN(list)
 
+A = [(0, _a) for _a in A]
+B = [(1, _b) for _b in B]
+
+C = [*A, *B]
+C.sort(key=lambda x:x[1])
+for i, (_ab, _) in enumerate(C):
+    if _ab==0: print(i+1, end=" ")
+print()
+for i, (_ab, _) in enumerate(C):
+    if _ab==1: print(i+1, end=" ")

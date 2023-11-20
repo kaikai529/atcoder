@@ -91,4 +91,11 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+A = Counter(IN(list))
 
+ans = 0
+for _, val in A.items():
+    ans += val//2
+
+print(ans)

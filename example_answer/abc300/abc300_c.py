@@ -84,11 +84,41 @@ def INs(len_n: int, trans_func=lambda x: x):
     return trans_func([IN(trans_func) for _ in range(len_n)])
 
 
-def STR_INs(len_n: int, trans_func):
+def STR_INs(len_n: int, trans_func=lambda x: x):
     return [STR_IN(trans_func).strip() for _ in range(len_n)]
 
 def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+h, w = IN()
+C = STR_INs(h)
 
+ans = [0]*min(h, w)
+# 1~h-1, 1~w-1を探索
+for _y, _x in product(range(h-2), range(w-2)):
+    base_y, base_x = _y+1, _x+1
+    # "."の時，スキップ
+    if C[base_y][base_x]==".": continue
+    
+    # ×の有無
+    flag = True
+    for dy, dx in product((-1, 1), (-1, 1)):
+        if C[base_y+dy][base_x+dx]==".":
+            flag = False
+            break
+    
+    # ×のサイズ
+    if flag:
+        cnt = 0
+        dy, dx = 1, 1
+        this_y, this_x = base_y, base_x
+        while (0<=this_y+dy<h and 0<=this_x+dx<w):
+            this_y+=dy
+            this_x+=dx
+            if C[this_y][this_x]!="#": break
+            cnt+=1
+    
+        ans[cnt-1]+=1
+
+print(*ans)
