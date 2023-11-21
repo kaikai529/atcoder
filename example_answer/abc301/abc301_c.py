@@ -94,4 +94,15 @@ def double_range(h, w):
 S = Counter(STR_IN(list))
 T = Counter(STR_IN(list))
 
+for _str in "atcoder":
+    if S[_str]==T[_str]: continue
+    
+    M = max(S[_str], T[_str])
+    S['@']-=(M-S[_str])
+    T['@']-=(M-T[_str])
+    if S['@']>=0 and T['@']>=0:
+        S[_str] = M
+        T[_str] = M
 
+if S==T: print("Yes")
+else: print("No")

@@ -91,4 +91,14 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n , q = IN()
+queries = INs(q, list)
 
+red = [0]*(n+1)
+yellow = [0]*(n+1)
+for c, x in queries:
+    if c==1: yellow[x]+=1
+    elif c==2: red[x]+=1
+    else:
+        if yellow[x]<=1 and red[x]==0: print("No")
+        else: print("Yes")

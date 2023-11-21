@@ -91,4 +91,21 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+S = STR_IN()
 
+seen = defaultdict(int)
+this_y, this_x = 0, 0
+seen[(this_y, this_x)]+=1
+for _s in S:
+    if _s=="R": this_x+=1
+    elif _s=="L": this_x-=1
+    elif _s=="U": this_y+=1
+    else :this_y-=1
+    
+    seen[(this_y, this_x)]+=1
+    if seen[(this_y, this_x)]>=2:
+        print("Yes")
+        exit()
+
+print("No")

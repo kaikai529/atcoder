@@ -91,4 +91,24 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m = IN()
+S = list()
+for i in range(m):
+    _ = IN()
+    S.append(set(IN(list)))
 
+ans = 0
+for bit in range(1,2**m):
+    choosed_set = set()
+    for sift in range(m):
+        if bit>>sift&1:
+            choosed_set|=S[sift]
+    flag = True
+    for x in range(1,n+1):
+        if not x in choosed_set:
+            flag=False
+            break
+        
+    if flag: ans+=1
+    
+print(ans)

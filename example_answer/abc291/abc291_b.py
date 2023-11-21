@@ -91,4 +91,8 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+X = IN(list)
+X.sort()
 
+print(sum(X[n:4*n])/3/n)

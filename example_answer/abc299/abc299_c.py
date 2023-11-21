@@ -91,4 +91,15 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+S = STR_IN()
 
+ans = -1
+rle_s = rle(S)
+if not len(rle_s)==1: 
+    if rle_s[0][0]=="-": start=1
+    else: start=0
+    for i in range(start, len(rle_s),2):
+        _, val = rle_s[i]
+        ans = max(ans, val)
+print(ans)

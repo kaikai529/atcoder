@@ -91,4 +91,6 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-
+n = IN()
+s = STR_IN()
+print(s.replace("na", "nya"))

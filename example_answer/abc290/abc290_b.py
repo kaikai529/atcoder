@@ -91,4 +91,12 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, k = IN()
+s = STR_IN()
 
+for _s in s:
+    if _s=="o" and k>0:
+        k-=1
+        print(_s, end="")
+    else:
+        print("x", end="")

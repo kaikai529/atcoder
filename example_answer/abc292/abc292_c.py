@@ -35,7 +35,7 @@ def prime_numbers(max_n):
 def divisor(n: int):
     # 約数を返す
     ans = []
-    for i in range(1, ceil(sqrt(n))+1):
+    for i in range(1, ceil(sqrt(n)+1)):
         if n % i == 0:
             ans.append(i)
             ans.append(n//i)
@@ -91,4 +91,20 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
 
+dp = [0]*(n+1)
+for a in range(1,n+1):
+    for b in range(a+1,n+1):
+        if a*b<=n: dp[a*b]+=2
+        else: break
+
+for i in range(n):
+    if i*i<=n: dp[i*i]+=1
+    else: break
+
+ans = 0
+for i in range(1,n):
+    ans+= dp[i]*dp[n-i]
+
+print(ans)

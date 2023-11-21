@@ -1,4 +1,4 @@
-from bisect import bisect_left, bisect_right
+from bisect import insort, bisect_left, bisect_right
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
 from collections import Counter, defaultdict, deque
@@ -91,4 +91,26 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+q = IN()
+queries = INs(q, list)
 
+box = defaultdict(list)
+card = defaultdict(set)
+
+for query in queries:
+    # query 1
+    if query[0]==1:
+        i, j = query[1:]
+        box[j].append(i)
+        card[i].add(j)
+    # query 2
+    elif query[0]==2:
+        i = query[-1]
+        print(*sorted(box[i]))
+    # query 3
+    else:
+        i = query[-1]
+        print(*sorted(card[i]))
+        
+                
