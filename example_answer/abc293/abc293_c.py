@@ -1,4 +1,5 @@
 from bisect import bisect_left, bisect_right
+from copy import deepcopy
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
 from collections import Counter, defaultdict, deque
@@ -91,4 +92,24 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+h, w = IN()
+A = INs(h, list)
 
+ans = 0
+stack = [ [0, 0, [A[0][0]]] ]
+while stack:
+    this_y, this_x, seen = stack.pop()
+    for dy, dx in [[0,1],[1,0]]:
+        # 範囲外なら探索は中止
+        if not (this_y+dy<h and this_x+dx<w): continue
+        
+        # 同じ数が合ったら探索は中止
+        _a = A[this_y+dy][this_x+dx]
+        if _a in seen: continue
+        stack.append([this_y+dy, this_x+dx, seen+[_a]])
+            
+        # ゴールに到着
+        if this_y+dy==h-1 and this_x+dx==w-1:
+            ans+=1
+            continue
+print(ans)

@@ -91,4 +91,11 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, k = IN()
+A = set(IN(list))
 
+a = 0
+while a in A:
+    a+=1
+
+print(min(a, k))
