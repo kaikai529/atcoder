@@ -92,4 +92,6 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-
+x, y = IN()
+if x==y: print(x)
+else: print(*set(range(3))-set([x,y]))

@@ -92,4 +92,11 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+dice = Counter(IN(list))
 
+if len(dice)==3: 
+    print(0)
+    exit()
+
+for key, val in dice.items():
+    if val!=2: print(key)

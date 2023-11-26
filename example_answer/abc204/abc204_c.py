@@ -92,4 +92,24 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m = IN()
 
+tree = [[] for _ in range(n)]
+for _ in range(m):
+    a, b = IN()
+    tree[a-1].append(b-1)
+    
+ans = 0
+for start in range(n):
+    seen = [0]*n
+    seen[start]=1
+    stack = [tree[start]]
+    while stack:
+        points = stack.pop()
+        for _p in points:
+            if seen[_p]: continue
+            seen[_p]=1
+            stack.append(tree[_p])
+    ans+=sum(seen)
+
+print(ans)
