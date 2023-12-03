@@ -92,4 +92,11 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+A = IN(list)
 
+ans = 0
+for _a in A:
+    ans+=max(0, _a-10)
+
+print(ans)

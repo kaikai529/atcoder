@@ -50,7 +50,7 @@ def cum(array: list, key=lambda x: x):
     return cum_sum
 
 
-def nCr(n: int, r: int):
+def combination(n: int, r: int):
     # desc: nCrを求める関数
     return factorial(n) // factorial(r) // factorial(n - r)
 
@@ -92,4 +92,11 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+s = STR_IN()
+ans = ""
+for _s in s:
+    if _s=="6": ans+="9"
+    elif _s=="9": ans+="6"
+    else : ans+=_s
 
+print(ans[::-1])

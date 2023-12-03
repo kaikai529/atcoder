@@ -92,4 +92,5 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-
+a, b, c = IN()
+print(max(a+b, b+c,c+a))

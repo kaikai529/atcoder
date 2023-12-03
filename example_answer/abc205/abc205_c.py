@@ -92,4 +92,15 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+a, b, c = IN()
 
+# cが偶数の時
+if c%2==0:
+    if abs(a)<abs(b): print("<")
+    elif abs(a)==abs(b): print("=")
+    else: print(">")
+# cが奇数の時
+else:
+    if a<b: print("<")
+    elif a==b: print("=")
+    else: print(">")

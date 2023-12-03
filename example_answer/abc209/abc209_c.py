@@ -92,4 +92,12 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+C = IN(list)
+C.sort()
+ans = 1
+for i in range(n):
+    ans*=(C[i]-i)
+    ans%=MOD
 
+print(ans)

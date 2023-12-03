@@ -50,7 +50,7 @@ def cum(array: list, key=lambda x: x):
     return cum_sum
 
 
-def nCr(n: int, r: int):
+def combination(n: int, r: int):
     # desc: nCrを求める関数
     return factorial(n) // factorial(r) // factorial(n - r)
 

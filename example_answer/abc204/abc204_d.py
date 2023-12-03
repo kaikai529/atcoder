@@ -92,4 +92,29 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+T = IN(list)
 
+# 動的計画法 i番目の時，時刻tになるか
+sum_T = sum(T)
+dp = [[False]*(sum_T+3) for _ in range(n)]
+
+# 初期値（0番目）
+dp[0][0] = True
+dp[0][T[0]] = True
+
+
+for i in range(n-1):
+    for t in range(sum_T):
+        if not dp[i][t]: continue
+        # i番目で，時刻tを取る場合
+        dp[i+1][t] = True # i+1番目を選ばないとき, 時刻はt
+        dp[i+1][t+T[i+1]] = True # i+1番目を選ぶとき，時刻はt+T[i+1]
+    
+# 合計の時刻がsum_Tになる組合わせの最大値が最小になる組が答え
+ans = inf
+for t in range(sum_T):
+    if dp[n-1][t]:
+        ans = min(ans, max(t, sum_T-t))
+
+print(ans)

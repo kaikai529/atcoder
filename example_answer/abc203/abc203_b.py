@@ -92,4 +92,8 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-
+n, k = IN()
+ans = 0
+for _n, _k in product(range(1,n+1), range(1,k+1)):
+    ans+= _n*100+_k
+print(ans)

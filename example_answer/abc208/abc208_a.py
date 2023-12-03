@@ -92,4 +92,9 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+a, b = IN()
 
+if a<=b<=a*6:
+    print("Yes")
+else:
+    print("No")

@@ -92,4 +92,18 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, k = IN()
+friends = defaultdict(int)
+for _ in range(n):
+    v, m = IN()
+    friends[v]+=m
+
+ans = 0
+friends = sorted(friends.items(), key=lambda x:x[0])
+for v, m in friends:
+    if k-(v-ans)<0: break
+    k+=m-(v-ans)
+    ans=v
+    
+print(ans+k)
 

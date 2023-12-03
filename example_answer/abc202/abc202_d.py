@@ -92,4 +92,21 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+a, b, k = IN()
 
+left = 0
+ans = ""
+while a>0 and b>0:
+    middle = left + nCr(a+b-1, a-1)
+    right = middle + nCr(a+b-1, a)
+    # aを選んだ時の通り
+    if left < k <= middle:
+        a-=1
+        ans+="a"
+    # bを選んだ時の通り
+    else:
+        b-=1
+        ans+="b"
+        left=middle
+
+print(ans+"a"*a+"b"*b)

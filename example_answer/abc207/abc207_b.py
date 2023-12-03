@@ -92,4 +92,9 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+a, b, c, d = IN()
 
+if b>=c*d:
+    print(-1)
+else:
+    print(ceil(a/(c*d-b)))   

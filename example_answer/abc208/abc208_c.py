@@ -92,4 +92,15 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, k = IN()
+A = IN(list)
+cnt = [[i, _a, 0] for i, _a in enumerate(A)]
+cnt.sort(key=lambda x:x[1])
+
+for i in range(k%n):
+    cnt[i][2]+=1
+
+cnt.sort(key=lambda x:x[0])
+for _, _, _c in cnt: print(k//n+_c)
+
 

@@ -92,4 +92,32 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, q = IN()
 
+# 隣接行列
+tree = [[] for _ in range(n)]
+for _ in range(n-1):
+    a, b = IN()
+    tree[a-1].append(b-1)
+    tree[b-1].append(a-1)
+
+# 二部グラフ(-1 or 1)
+bip_graph = [0]*n
+
+bip_graph[0] = 1
+stack = [[tree[0], 1]]
+while stack:
+    points, b = stack.pop()
+    for _p in points:
+        if bip_graph[_p]==0:
+            bip_graph[_p] = -b
+            stack.append([tree[_p], -b])
+
+# クエリの処理
+ans = []
+for _ in range(q):
+    s, g = IN()
+    if bip_graph[s-1]*bip_graph[g-1]>0: ans.append("Town")
+    else: ans.append("Road")
+
+for _ans in ans: print(_ans)

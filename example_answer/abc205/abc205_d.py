@@ -92,4 +92,29 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, q = IN()
+A = IN(list)
 
+# sub_A:配列Aのi番目と(i+1)番目の間に何個数字が存在するか
+sub_A = [A[0]-1]
+for i in range(n-1):
+    sub_A.append(A[i+1]-A[i]-1)
+
+# cum_A:配列Aのi番目より前に該当の整数が何個あるか
+cum_A = cum(sub_A)
+
+ans = []
+for _ in range(q):
+    k = IN()
+    # A[-1]番目より前にcum_A[-1]個存在する
+    # k>cum_A[-1]ならば，A[-1]より大きい数字
+    if k>cum_A[-1]:
+        # A[-1]+1がcum_A[-1]+1番目．ここから(k-cum_A[-1]-1)個進む
+        ans.append(A[-1]+(k-cum_A[-1]))
+    else:
+        # 二分探索で k<=cum_A[i] となるiを求める
+        # A[i]-1がcum_A[i]番目．ここから(cum_A[i]-k)個戻る
+        index = bisect_left(cum_A, k)
+        ans.append((A[index]-1)-(cum_A[index]-k))
+        
+print(ans)

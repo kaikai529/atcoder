@@ -92,4 +92,12 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+A = IN(list)
 
+cnt_A = Counter(A)
+ans = 0
+for _a in A:
+    ans+=(n-cnt_A[_a])
+
+print(ans//2)

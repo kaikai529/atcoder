@@ -92,4 +92,21 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+section = []
+for i in range(n):
+    t, l, r = IN()
+    if t==1: section.append([l, r])
+    elif t==2: section.append([l,r-0.5])
+    elif t==3: section.append([l+0.5, r])
+    elif t==4: section.append([l+0.5, r-0.5])
+    
+ans = 0
+for i in range(n):
+    l, r = section[i]
+    for j in range(i+1, n):
+        ll, rr = section[j]
+        if min(r,rr)-max(l,ll)>=0:
+            ans+=1
 
+print(ans)

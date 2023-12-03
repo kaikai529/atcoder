@@ -50,7 +50,7 @@ def cum(array: list, key=lambda x: x):
     return cum_sum
 
 
-def nCr(n: int, r: int):
+def combination(n: int, r: int):
     # desc: nCrを求める関数
     return factorial(n) // factorial(r) // factorial(n - r)
 
@@ -92,4 +92,17 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+A, B, C = IN(list), IN(list), IN(list)
+
+# Bcが取りうる値
+bucket = defaultdict(int)
+for _c in C: bucket[B[_c-1]]+=1
+
+# A=Bcとなる値
+ans = 0
+for _a in A: ans+=bucket[_a]
+
+print(ans)
+
 

@@ -92,4 +92,11 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
 
+savings = 0
+for i in range(1, 10**5):
+    savings+=i
+    if savings>=n:
+        print(i)
+        exit()

@@ -92,4 +92,12 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+p = IN()
 
+ans = 0
+for i in range(10, 0, -1):
+    fact = factorial(i)
+    ans+=p//fact
+    p-=p//fact*fact
+
+print(ans)

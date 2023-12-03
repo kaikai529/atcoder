@@ -92,4 +92,22 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+A = IN(list)
 
+cnt_A = Counter(A)
+eq_A = defaultdict(int) 
+for i in range(n):
+    if A[i]==A[-1-i]:
+        eq_A[A[i]]+=1
+
+for key, val in eq_A.items():
+    cnt_A[key]-=val
+    
+print(cnt_A)
+
+"""
+方針
+１．回文で対応する値同士を数える -> 重み付き無向グラフのようになる
+２．そこから，何かできれば．．．
+"""

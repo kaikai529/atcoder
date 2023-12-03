@@ -92,4 +92,10 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n , x = IN()
+A = IN(list)
+for i, _a in enumerate(A):
+    x-=(_a-i%2)
 
+if x>=0: print("Yes")
+else: print("No")
