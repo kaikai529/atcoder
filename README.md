@@ -141,6 +141,8 @@ Input contest name: abc120
 |abc131        |o|o|△|-| - | - | |
 |abc132        |o|o|o|-| - | - | |
 |abc133        |o|o|o|-| - | - | |
+|abc134        |o|o|o|-| - | - | |
+|abc135        |o|o|o|-| - | - | |
 |abc175        |o|o|o|-| - | - | |
 |abc176        |o|o|o|-| - | - | |
 |abc178        |o|o|o|-| - | - | |
