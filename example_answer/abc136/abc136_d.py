@@ -52,7 +52,6 @@ def cum(array: list, key=lambda x: x):
 
 def nCr(n: int, r: int):
     # desc: nCrを求める関数
-    if n<r: return 0
     return factorial(n) // factorial(r) // factorial(n - r)
 
 def rle(s):
@@ -93,4 +92,27 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+S = STR_IN()
+rle_S = rle(S)
+
+# 最終的に何回目で収束するか
+children = [0]*len(S)
+index = 0
+for i in range(len(rle_S)//2):
+    r, r_val = rle_S[2*i]
+    l, l_val = rle_S[2*i+1]
+    
+    r_num, l_num = r_val//2+l_val//2, r_val//2+l_val//2
+    if r_val%2==1:
+        r_num+=1
+    if l_val%2==1:
+        l_num+=1
+    
+    children[index+r_val-1] = r_num
+    children[index+r_val] = l_num
+    index+=r_val+l_val
+
+print(*children)
+    
+        
 

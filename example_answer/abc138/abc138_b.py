@@ -52,7 +52,6 @@ def cum(array: list, key=lambda x: x):
 
 def nCr(n: int, r: int):
     # desc: nCrを求める関数
-    if n<r: return 0
     return factorial(n) // factorial(r) // factorial(n - r)
 
 def rle(s):
@@ -93,4 +92,8 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+A = IN(list)
 
+denominator = sum([1/a for a in A])
+print(1/denominator)
