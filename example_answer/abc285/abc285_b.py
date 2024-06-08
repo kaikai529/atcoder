@@ -93,4 +93,15 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+S = STR_IN()
+cnt = defaultdict(int)
 
+for i in range(1, n):
+    flag = True
+    for k in range(n-i):
+        if S[k]==S[k+i]:
+            print(k)
+            flag = False
+            break
+    if flag: print(k+1)

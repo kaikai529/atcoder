@@ -93,4 +93,40 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m  = IN()
+A = IN(list)
 
+bingo = [[0 for _ in range(n)] for _ in range(n)]
+
+# ビンゴの穴を順番に記入
+cnt=1
+for a in A:
+    bingo[(a-1)//n][(a-1)%n]=cnt
+    cnt+=1
+
+ans = [] 
+for _i in range(n):
+    ma_x, ma_y = 0, 0
+    flag_x, flag_y = True, True
+    for _j in range(n):
+        if bingo[_i][_j]==0: flag_x=False
+        if bingo[_j][_i]==0: flag_y=False
+        ma_x = max(ma_x, bingo[_i][_j])
+        ma_y = max(ma_y, bingo[_j][_i])
+        
+    # ビンゴの場合，完成したターンを記録
+    if flag_x: ans.append(ma_x)
+    if flag_y: ans.append(ma_y)
+
+ma_xy, ma_yx = 0, 0
+flag_xy, flag_yx = True, True
+for _i in range(n):
+    if bingo[_i][_i]==0: flag_xy=False
+    if bingo[_i][n-_i-1]==0: flag_yx=False
+    ma_xy = max(ma_xy, bingo[_i][_i])
+    ma_yx = max(ma_yx, bingo[_i][n-_i-1])
+
+if flag_xy: ans.append(ma_xy)
+if flag_yx: ans.append(ma_yx)
+if len(ans)==0: print(-1)
+else: print(min(ans))

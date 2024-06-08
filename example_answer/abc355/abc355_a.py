@@ -93,4 +93,7 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-
+a, b = IN()
+p = set([1,2,3])-set([a, b])
+if len(p)==1: print(p.pop())
+else: print(-1)

@@ -93,4 +93,7 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, l, r = IN()
 
+N = [i for i in  range(1,n+1)]
+print(*(N[:l-1]+N[l-1:+r][::-1]+N[r:]))

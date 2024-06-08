@@ -52,7 +52,6 @@ def cum(array: list, key=lambda x: x):
 
 def nCr(n: int, r: int):
     # desc: nCrを求める関数
-    if n<r: return 0
     return factorial(n) // factorial(r) // factorial(n - r)
 
 def rle(s):

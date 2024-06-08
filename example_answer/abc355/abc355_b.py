@@ -93,4 +93,26 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m  = IN()
+A = sorted(IN(list))
+B = sorted(IN(list))
+C = sorted([*A,*B])
+
+index_a=0
+index_b=0
+cnt = 0
+for c in C:
+    if c==A[index_a%len(A)]:
+        index_a+=1
+        cnt+=1
+    if c==B[index_b%len(B)]:
+        index_b+=1
+        cnt=0
+        
+    if cnt==2:
+        print("Yes")
+        exit()
+        
+print("No")
+
 

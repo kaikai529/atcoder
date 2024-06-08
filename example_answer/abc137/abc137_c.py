@@ -93,4 +93,16 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+S = STR_INs(n, list)
 
+cnt = defaultdict(int)
+for s in S:
+    s.sort()
+    cnt["".join(s)]+=1
+
+ans = 0
+for key, val in cnt.items():
+    ans+=nCr(val, 2)
+
+print(ans)

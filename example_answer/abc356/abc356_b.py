@@ -93,4 +93,18 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m  = IN()
+A = IN(list)
+X = INs(n, list)
 
+intake = [0 for _ in range(m)]
+for _X in X:
+    for i, _x in enumerate(_X):
+        intake[i]+=_x
+
+for _a, _intake in zip(A, intake):
+    if _a>_intake:
+        print("No")
+        exit()
+
+print("Yes")

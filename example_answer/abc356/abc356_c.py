@@ -93,4 +93,34 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m, k = IN()
+key = [[0 for _ in range(n)] for _ in range(m)]
+r = []
+for i in range(m):
+    tmp = STR_IN(list)
+    r.append(tmp[-1])
+    for a in tmp[1:-1]:
+        a = int(a)
+        key[i][a-1]=1
+res = 0
+for i in range(2**n):
+    # bit変換
+    digit = []
+    for j in range(n):
+        digit.append(1) if i>>j&1==1 else digit.append(0)
+
+    flag = True
+    for j in range(m):
+        ck = 0
+        for p in range(n):
+            # 正鍵（digit）and 使われている（key）
+            if key[j][p]==1 and digit[p]==1: ck+=1
+        
+        # k個以上の場合，開いてしまう
+        if ck>=k and r[j]=="x": flag=False
+        # k個以下の場合，開かない
+        if ck<k and r[j]=="o": flag=False
+    if flag: res+=1
+        
+print(res)
 

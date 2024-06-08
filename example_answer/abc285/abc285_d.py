@@ -93,4 +93,19 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+ST = STR_INs(n, list)
+tree = defaultdict(list)
 
+for _s, _t in ST:
+    tree[_s].append(_t)
+    tree[_t].append(_s)
+
+keys = set(tree.keys())
+while keys:
+    start_p = keys.pop()
+    next_p = tree[start_p]
+    for _p in next_p:
+        if not _p in keys:
+            print("Yes")
+        

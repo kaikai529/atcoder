@@ -93,4 +93,14 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+S = STR_IN()
+base = ord("A")
+s = [ord(_s)-base+1 for _s in S]
 
+ans = 0
+val = 1
+for _s in s[::-1]:
+    ans += val*_s
+    val*=26
+    
+print(ans)

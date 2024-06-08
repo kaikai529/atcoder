@@ -93,4 +93,25 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+# 尺取り法
 
+n = IN()
+l = [0]*n
+r = [0]*n
+for i in range(n):
+    l[i], r[i] = IN()
+
+# sort
+l.sort()
+r.sort()
+
+# 共通区間でないものを探す
+ans = n*(n-1)//2
+idx = 0
+for i in range(n):
+    # left側を固定，right側を探索．
+    while r[idx]<l[i]:
+        idx+=1
+    ans-=idx
+
+print(ans)    
