@@ -93,16 +93,7 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
-n = IN()
-A, B = [0]*n, [0]*n
-for _i in range(n):
-    A[_i], B[_i] = IN()
+A = IN(list)
+B = IN(list)
 
-sum_a = sum(A)
-
-ans = 0
-for a, b in zip(A, B):
-    ans = max(ans, sum_a-a+b)
-
-print(ans)
-
+print(max(0,sum(A)-sum(B)+1))
