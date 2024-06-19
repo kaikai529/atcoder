@@ -94,15 +94,21 @@ def double_range(h, w):
 
 # main
 n = IN()
-A, B = [0]*n, [0]*n
-for _i in range(n):
-    A[_i], B[_i] = IN()
+A = IN(list)
 
-sum_a = sum(A)
-
-ans = 0
-for a, b in zip(A, B):
-    ans = max(ans, sum_a-a+b)
-
-print(ans)
-
+ans = []
+for _a in A:
+    ans.append(_a)
+    if len(ans)==1: continue
+    while True:
+        if len(ans)==1: break
+        a1 = ans.pop()
+        a2 = ans.pop()
+        if a1==a2:
+            ans.append(a1+1)
+        else:
+            ans.append(a2)
+            ans.append(a1)
+            break
+        
+print(len(ans))

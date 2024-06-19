@@ -91,6 +91,3 @@ def STR_INs(len_n: int, trans_func=None):
 
 def double_range(h, w):
     return product(range(h), range(w))
-
-# main
-
