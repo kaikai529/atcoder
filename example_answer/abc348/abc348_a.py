@@ -96,4 +96,8 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
 
+for i in range(n):
+    if (i+1)%3==0: print("x", end="")
+    else: print("o", end="")

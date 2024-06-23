@@ -96,4 +96,18 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+points = INs(n, list)
 
+for i in range(n):
+    ans = 0
+    index = 0
+    x, y = points[i]
+    for j in range(n):
+        xx, yy = points[j]
+        dist = sqrt((x-xx)**2+(y-yy)**2)
+        if ans<dist:
+            ans = dist
+            index = j
+
+    print(index+1)

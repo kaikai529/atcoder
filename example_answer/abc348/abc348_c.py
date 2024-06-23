@@ -96,4 +96,11 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
 
+beans = defaultdict(lambda: inf)
+for _ in range(n):
+    a, c = IN()
+    beans[c] = min(beans[c], a)
+
+print(max(beans.values()))

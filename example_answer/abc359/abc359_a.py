@@ -96,4 +96,11 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+S = STR_INs(n)
 
+ans = 0
+for _s in S:
+    if _s=="Takahashi": ans+=1
+
+print(ans)

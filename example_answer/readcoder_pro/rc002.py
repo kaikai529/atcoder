@@ -96,4 +96,10 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+ans = 0
+for i in range(1, n+1, 2):
+    d = divisor(i)
+    if len(d)==8: ans+=1
 
+print(ans)

@@ -96,4 +96,11 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n = IN()
+A = IN(list)
 
+ans = 0
+for i in range(1,2*n-1):
+    if A[i-1]==A[i+1]: ans+=1
+
+print(ans)

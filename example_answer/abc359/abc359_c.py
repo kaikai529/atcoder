@@ -95,5 +95,42 @@ def STR_INs(len_n: int, trans_func=None):
 def double_range(h, w):
     return product(range(h), range(w))
 
+def this_point(x,y):
+    if x%2==y%2==0 or x%2==y%2==1: return "L"
+    else: return "R"
+    
+def ad_dx(idx:str, vec):
+    if idx=="L":
+        if vec>0: return -1
+        else: return 0
+    else:
+        if vec<0: return -1
+        else: return 0
 # main
+sx, sy = IN()
+tx, ty = IN()
 
+dx = tx-sx
+dy = ty-sy
+
+# マス目の右か左か
+idx = this_point(sx, sy)
+
+# 最初に進行方向にコストを消費しないで動けるかどうか
+abs_dx = abs(dx) + ad_dx(idx, dx)
+
+# 上下の移動は必ずコスト1を消費する
+abs_dy = abs(dy)
+ans = abs_dy
+
+# コストを消費すると必ず，左右に1回動ける
+abs_dx-=abs_dy
+
+# 左右に動く必要があるかどうか
+if abs_dx<=0:
+    print(ans)
+else:
+    # コスト1で左右に2マス進める
+    print(ans+ceil(abs_dx/2))
+
+    

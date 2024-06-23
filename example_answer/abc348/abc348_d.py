@@ -96,4 +96,47 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+h, w = IN()
 
+start = []
+goal = []
+A = [[] for _ in range(h)]
+seen = [[True for _ in range(w)] for _ in range(h)]
+for _h in range(h):
+    A[_h] = STR_IN(list)
+    for _w in range(w):
+        if A[_h][_w]=="S":
+            start = [_h, _w]
+        if A[_h][_w]=="T":
+            goal = [_h, _w]
+        if A[_h][_w]=="#":
+            seen[_h][_w] = False
+            
+n = IN()
+item = defaultdict(int)
+for _ in range(n):
+    r, c, e = IN()
+    item[(r-1,c-1)] = e
+
+this_h, this_w = start
+act = item[(this_h, this_w)]
+stack = [[this_h, this_w, act, item]]
+cnt = 0
+print("----------")
+while len(stack)>0:
+    cnt+=1
+    #if cnt==20: break
+    this_h, this_w, _act, _item = stack.pop()
+    print(this_h, this_w, _act)
+    if (this_h, this_w)==goal:
+        print("Yes")
+        exit()
+    for dw, dh in VEC4:
+        next_h, next_w = this_h+dh, this_w+dw
+        if 0<=next_h<h and 0<=next_w<w:
+            if seen[next_h][next_w] and _act>0:
+                act_tmp = _act+_item[(next_h, next_w)]-1
+                item_tmp = deepcopy(_item)
+                item_tmp[(next_h, next_w)] = 0
+                stack.append([next_h, next_w, act_tmp, item_tmp])
+print("No")
