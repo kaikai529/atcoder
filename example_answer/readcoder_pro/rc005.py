@@ -96,4 +96,16 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+a, b, c, x, y = IN()
+ab = min(a+b, c*2)
+common = min(x,y)
 
+ans = ab*common
+if x>y:
+    a = min(a, 2*c)
+    ans += a*abs(x-y)
+else:
+    b = min(b, 2*c)
+    ans += b*abs(x-y)
+
+print(ans)

@@ -12,14 +12,12 @@ VEC4 = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 VEC9 = list(product([-1, 0, 1], [-1, 0, 1]))
 
 # 自作関数
-def lcm(a, b) -> int:
-    """最小公倍数を求める関数
-    """
+def lcm(a, b):
+    # desc: 最小公倍数を求める関数
     return a*b // gcd(a, b)
 
-def prime_numbers(max_n)->list:
-    """素数数列を返す
-    """
+def prime_numbers(max_n):
+    # 素数数列を返す
     def is_prime(n):
         # 素数判定
         for p in ps:
@@ -35,9 +33,8 @@ def prime_numbers(max_n)->list:
 
     return ps
 
-def divisor(n: int)->list:
-    """約数を返す
-    """
+def divisor(n: int):
+    # 約数を返す
     ans = []
     for i in range(1, ceil(sqrt(n))+1):
         if n % i == 0:
@@ -96,4 +93,12 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+while True:
+    n, x = IN()
+    if n==x==0: break
+    
+    ans = defaultdict(int)
+    for con in combinations(range(1,n+1), 3):
+        ans[sum(con)]+=1
 
+    print(ans[x])

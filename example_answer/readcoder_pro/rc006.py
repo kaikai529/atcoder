@@ -95,5 +95,62 @@ def STR_INs(len_n: int, trans_func=None):
 def double_range(h, w):
     return product(range(h), range(w))
 
-# main
+class ListMaster:
+    def __init__(self, lst):
+        self.lst = lst
+    
+    def find(self, start, val):
+        """ 配列[start:end]からvalのインデックスを探す
+        Returns: 見つからない場合は，infを返す
+        """
+        if start>=len(self.lst): return inf
+        for i, _element in enumerate(self.lst[start+1:]):
+            if _element==val:
+                return start+i
+        return inf
+        
+        
+        
 
+# main
+n = IN()
+S = ListMaster(STR_IN(list))
+
+ans = 0
+for a, b, c in product(range(10), range(10), range(10)):
+    s = -1
+    s = S.find(s, str(a))
+    s = S.find(s+1, str(b))
+    s = S.find(s+1, str(c))
+    if s<inf: ans+=1
+    
+print(ans)
+"""
+n = IN()
+S = list(map(int, STR_IN(list)))
+
+ans = 0
+for abc in product(range(10), range(10),range(10)):
+    flag = False
+    cnt = 0
+    for i in range(n):
+        if S[i]==abc[cnt]:
+            cnt+=1
+            if cnt==3:
+                flag=True
+                break
+    if flag: ans+=1
+print(ans) 
+"""
+"""
+# 絶対に間に合わない＝オーダー(n^3)
+n = IN()
+S = STR_IN(list)
+ans = set()
+for _m in range(1,n-1):
+    for _s in range(0,_m):
+        for _e in range(_m+1,n):
+           ans.add(S[_s]+S[_m]+S[_e]) 
+
+print(len(ans))
+"""

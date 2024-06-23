@@ -96,4 +96,32 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+S = STR_IN()
+ans = 0
+for i in range(len(S)):
+    for j in range(i,len(S)+1):
+        flag = True
+        for k in range(i,j):
+            if not S[k] in "ACGT":
+               flag = False
+               break
+        if flag:
+            ans = max(ans, len(S[i:j]))
 
+print(ans)
+
+"""別解法
+# main
+s = STR_IN()
+
+ans = 0
+temp = ""
+for _s in s:
+    if _s in "ACGT":
+        temp+=_s
+    else:
+        ans = max(ans, len(temp))
+        temp=""
+
+print(max(ans, len(temp)))
+"""

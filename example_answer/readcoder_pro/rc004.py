@@ -96,4 +96,16 @@ def double_range(h, w):
     return product(range(h), range(w))
 
 # main
+n, m = IN()
+A = INs(n, list)
 
+ans = 0
+for t1 in range(m-1):
+    for t2 in range(t1+1,m):
+        group = 0
+        for i in range(n):
+            group+=max(A[i][t1], A[i][t2])
+
+        ans = max(ans, group)
+
+print(ans)        
