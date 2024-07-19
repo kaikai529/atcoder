@@ -268,6 +268,7 @@ Input contest name: abc120
 |abc326        |o|o|o|-| - | - | |
 |abc327        |o|o|o|o| - | - |D:二部グラフ |
 |-             |-|-|-|-| - | - | |
+|abc341        |o|o|o|-| - | - | |
 |abc342        |o|o|o|-| - | - | |
 |abc343        |o|o|o|o| - | - | |
 |abc344        |o|o|o|-| - | - | |
