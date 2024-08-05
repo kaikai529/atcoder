@@ -94,8 +94,8 @@ def STR_INs(len_n: int, trans_func=None):
     return [STR_IN(trans_func) for _ in range(len_n)] if trans_func else [STR_IN().strip() for _ in range(len_n)]
 
 def double_range(h, w):
-    return product(range(h), range(w))
-
+    return product(
+      
 def dijkstra(G, s):
     dist = [inf] * len(G)
     dist[s] = 0
