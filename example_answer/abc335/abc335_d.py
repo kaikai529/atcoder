@@ -8,7 +8,7 @@ import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 # 定数
 MOD = 10**9+7
-VEC4 = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+# VEC4 = {"D": (1, 0), "U": (-1, 0), "R": (0, 1), "L": (0, -1)}
 VEC9 = list(product([-1, 0, 1], [-1, 0, 1]))
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -112,4 +112,26 @@ def warshall_floyd(G):
     return G
 
 # main
+VEC4 = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+n = IN()
+grid = [[0 for _ in range(n)] for _ in range(n)]
+grid[n//2][n//2] = "T"
 
+th, tw = 0, 0
+cnt = 0
+grid[0][0]=1
+index = 2
+
+while True:
+    dh, dw = VEC4[cnt%4]
+    if 0<=th+dh<n and 0<=tw+dw<n:
+        if grid[th+dh][tw+dw]=="T":
+            break
+        elif grid[th+dh][tw+dw]==0:
+            grid[th+dh][tw+dw]=index
+            th, tw = th+dh, tw+dw
+            index+=1
+            continue
+    cnt+=1
+    
+for g in grid: print(*g)

@@ -112,4 +112,8 @@ def warshall_floyd(G):
     return G
 
 # main
+n, t, p = IN()
+L = IN(list)
+L.sort(reverse=True)
 
+print( max(0, t-L[p-1]))

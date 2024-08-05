@@ -112,4 +112,7 @@ def warshall_floyd(G):
     return G
 
 # main
+n = IN()
+
+print("L"+"o"*n+"ng")
 

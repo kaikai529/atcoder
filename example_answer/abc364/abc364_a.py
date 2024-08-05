@@ -112,4 +112,17 @@ def warshall_floyd(G):
     return G
 
 # main
+n = IN()
+S = STR_INs(n)
 
+flag = False
+for s in S[:-1]:
+    if s=="salty": flag = False
+    else:
+        if flag:
+            print("No")
+            exit()
+        else:
+            flag = True
+
+print("Yes")

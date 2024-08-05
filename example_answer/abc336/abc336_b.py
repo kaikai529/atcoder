@@ -112,4 +112,10 @@ def warshall_floyd(G):
     return G
 
 # main
+n = IN()
+n = bin(n)
 
+for i, _n in enumerate(n[::-1]):
+    if _n!="0": 
+        print(i)
+        exit()

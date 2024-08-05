@@ -4,6 +4,7 @@ from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
 from collections import Counter, defaultdict, deque
 from heapq import heappop, heappush
+from functools import lru_cache
 import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 # 定数
@@ -112,4 +113,25 @@ def warshall_floyd(G):
     return G
 
 # main
+@lru_cache(maxsize=1000)
+def is_palindrome(s):
+    global ans
+    for i in range(n-k+1):
+        ss = s[i:i+k]
+        if ss==ss[::-1]:
+            ans-=1
+            break
+        
+n, k = IN()
+S = STR_IN(list)
+
+ans = factorial(n)
+for _, val in Counter(S).items():
+    ans //= factorial(val)
+  
+for s in set(permutations(S)):
+    is_palindrome(s)
+print(ans)
+    
+
 

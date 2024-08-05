@@ -112,4 +112,18 @@ def warshall_floyd(G):
     return G
 
 # main
+def decimal_to_base(n, base):
+    if n == 0: return "0"
+    digits = []
+    while n:
+        digits.append(int(n % base))
+        n //= base
+    digits = digits[::-1]
+    return ''.join(str(digit) for digit in digits)
 
+n = IN()
+n = decimal_to_base(n-1, 5)
+ans = ""
+for i in n:
+    ans += "02468"[int(i)]
+print(ans)

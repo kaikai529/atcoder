@@ -3,7 +3,6 @@ from copy import copy, deepcopy
 from itertools import combinations, count, permutations, product
 from math import ceil, factorial, floor, gcd, inf, sqrt
 from collections import Counter, defaultdict, deque
-from heapq import heappush, heappop
 import sys
 sys.setrecursionlimit(10 ** 7)  # 再起関数の再起上限
 input = sys.stdin.readline
@@ -94,54 +93,24 @@ def STR_INs(len_n: int, trans_func=None):
     return [STR_IN(trans_func) for _ in range(len_n)] if trans_func else [STR_IN().strip() for _ in range(len_n)]
 
 def double_range(h, w):
-    return product(
-      
-def dijkstra(G, s):
-    dist = [inf] * len(G)
-    dist[s] = 0
-    pq = [(0, s)]
-    while pq:
-        d, v = heappop(pq)
-        if d > dist[v]:
-            continue
-        for u, weight in G[v]:
-            nd = u + weight
-            if dist[u]>nd:
-                dist[u]=nd
-                heappush(pq, (nd, u))
-    return dist
+    return product(range(h), range(w))
 
 # main
-n, m = IN()
-node = IN(list)
+n = IN()
+Q = IN(list)
+A = IN(list)
+B = IN(list)
 
-Edges = [[] for _ in range(n)]
-for _ in range(m):
-    u, v, b = IN()
-    Edges[u-1].append([v-1, b])
-    Edges[v-1].append([u-1, b])
+ans = 0
+for x in range(max(Q)+1):
+    y = inf
+    for i in range(n):
+        if Q[i] < A[i]*x: 
+            y = -inf
+        elif B[i] > 0:
+            y = min(y, (Q[i]-A[i]*x)//B[i])
+    ans = max(ans, x+y)
+    x+=1
 
-""" ダイクストラ法 """
-dist = [inf]*n
-dist[0] = node[0]
-seen = [False]*n
+print(ans)                 
 
-stack = [0]
-while len(stack)>0:
-    ## 最小コストの頂点を選択
-    sp = stack[0]
-    for _s in stack:
-        if seen[True]: continue
-        if dist[sp]>dist[_s]:
-            sp = _s
-    
-    seen[sp] = True
-    stack.pop(stack.index(sp))
-    for np, cost in Edges[sp]:
-        if seen[np]: continue
-        dist[np] = min(dist[np], dist[sp]+cost+node[np])
-        stack.append(np)
-    
-print(*dist[1:])
-
-    

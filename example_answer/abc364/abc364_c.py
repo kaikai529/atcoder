@@ -112,4 +112,18 @@ def warshall_floyd(G):
     return G
 
 # main
+n, x, y = IN()
+A = IN(list)
+B = IN(list)
 
+A.sort(reverse=True)
+B.sort(reverse=True)
+
+A, B = cum(A), cum(B)
+
+a = min(n-1, bisect_left(A, x))
+if A[a]==x: a+=1
+b = min(n-1, bisect_left(B, y))
+if B[b]==y: b+=1
+
+print(min(n, a+1, b+1))

@@ -112,4 +112,44 @@ def warshall_floyd(G):
     return G
 
 # main
+n, q = IN()
+A = sorted(IN(list))
+B = INs(q, list)
 
+ans = []
+for b, k in B:
+    # 探索範囲の二分探索を行う
+    ok = 10**9
+    ng = 0
+    while ok-ng>0:
+        mid = (ok+ng)//2
+        # bを中心に[b-mid, b+mid]内の個数を数える
+        idx1 = bisect_left(A, b-mid)
+        idx2 = bisect_right(A, b+mid)
+        if idx2-idx1>=k:
+            ok = mid
+        else:
+            ng = mid
+    ans.append(ok)
+
+for a in ans: print(a)
+    # これだと間に合わないO(nlogn)とか？
+    # idx = bisect_left(A, b)
+    # if idx==n: idx=n-1
+    # elif idx!=0:
+    #     if b-A[idx-1]<=A[idx]-b:
+    #         idx = idx-1
+    
+    # left = idx-1
+    # right = idx+1
+    # lst = [abs(b-A[idx])]
+    # while k-1>0:
+    #     if 0<=left and (right>=n or b-A[left]<=A[right]-b):
+    #         lst.append(b-A[left])
+    #         left-=1
+    #     elif right<n:
+    #         lst.append(A[right]-b)
+    #         right+=1
+    #     k-=1
+    # print(lst[-1])
+    
